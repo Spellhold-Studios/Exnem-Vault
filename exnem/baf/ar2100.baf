@@ -1,0 +1,24 @@
+// Underdark
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2100",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2100",1)
+      ActionOverride("Bag 1",CreateItem("SCRXX21",0,0,0) // 
+      ActionOverride("Barrel 2",CreateItem("XSTF007",0,0,0) // 
+      ActionOverride("Chest 1",CreateItem("SCRXX22",0,0,0) // 
+      ActionOverride("Chest 11",CreateItem("XROB001",0,0,0) // 
+      ActionOverride("Chest 14",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Chest 17",CreateItem("AMULX003",0,0,0) // 
+      ActionOverride("Chest 4",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Chest 4",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Chest 7",CreateItem("AMULX01",0,0,0) // 
+      ActionOverride("Shelf 3",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Shelf 5",CreateItem("SCRXX02",0,0,0) // 
+      ActionOverride("Shelf 6",CreateItem("SCRXX21",0,0,0) // 
+      ActionOverride("Shelf 6",CreateItem("SCRXX01",0,0,0) // 
+      ActionOverride("Shelf 9",CreateItem("SCRXX22",0,0,0) // 
+      Continue()
+END

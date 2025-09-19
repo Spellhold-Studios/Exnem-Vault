@@ -1,0 +1,18 @@
+//Slums Area, Slavers
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0405",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0405",1)
+      ActionOverride("Barrel 3",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Chest 1",CreateItem("XRNG002",0,0,0) // 
+      ActionOverride("Chest 2",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Drawer 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Drawer 1",CreateItem("SCRXX23",0,0,0) // 
+      ActionOverride("Shelf 1",CreateItem("SCRXX24",0,0,0) // 
+      Continue()
+END

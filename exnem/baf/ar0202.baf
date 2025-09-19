@@ -1,0 +1,20 @@
+//Unseeing Eye Cult Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0202",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0202",1)
+      ActionOverride("Chest 1",CreateItem("AMULX01",0,0,0) // 
+      ActionOverride("Chest 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Chest 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Chest 3",CreateItem("XRNG004",0,0,0) // 
+      ActionOverride("Chest 4",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Chest 4",CreateItem("XRNG001",0,0,0) // 
+      ActionOverride("Chest 5",CreateItem("XPOT002",0,0,0) // 
+      ActionOverride("Drawer 1",CreateItem("XSWD006",0,0,0) // 
+      ActionOverride("Table 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Table 2",CreateItem("XPOT004",0,0,0) // 
+      Continue()
+END

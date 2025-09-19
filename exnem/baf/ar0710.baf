@@ -1,0 +1,12 @@
+// Promenade, House
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0710",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0710",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XBTS002",0,0,0) // 
+      Continue()
+END

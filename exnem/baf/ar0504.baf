@@ -1,0 +1,14 @@
+// Bridge Area, Saerk House, bottom level
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0504",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0504",1)
+      ActionOverride("Chest 2",CreateItem("XARM005",0,0,0) // 
+      ActionOverride("Chest 5",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Shelf 6",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Table 4",CreateItem("RNDTRE04",0,0,0) // 
+      Continue()
+END

@@ -1,0 +1,12 @@
+//Slums Area, Sewers, Spore Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0418",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0418",1)
+      TakeItemReplace("XSWD004","AX1H01","slander") // 
+      ActionOverride("slander",SelectWeaponAbility(SLOT_WEAPON,0))
+      Continue()
+END

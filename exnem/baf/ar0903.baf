@@ -1,0 +1,19 @@
+// Temple District, The Order
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0903",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0903",1)
+      ActionOverride("Bag 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Bag 3",CreateItem("XPOT008",0,0,0) // 
+      ActionOverride("Barrel 2",CreateItem("XPOT002",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("SCRXX20",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("SCRXX26",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("XRNG009",0,0,0) // 
+      ActionOverride("Table 1",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Table 1",CreateItem("RNDTRE04",0,0,0) // 
+      Continue()
+END

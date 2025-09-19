@@ -1,0 +1,13 @@
+// Druid Grove, Rakasha house
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1902",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1902",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XROB003",0,0,0) // 
+      Continue()
+END

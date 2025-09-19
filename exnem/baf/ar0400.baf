@@ -1,0 +1,20 @@
+//Slums Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0400",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0400",1)
+      ActionOverride("Barrel 1",CreateItem("SCRXX10",0,0,0)) // 
+      ActionOverride("Barrel 1",CreateItem("SCRXX12",0,0,0)) // 
+      ActionOverride("Barrel 5",CreateItem("SCRXX06",0,0,0)) // 
+      ActionOverride("Barrel 8",CreateItem("SCRXX11",0,0,0)) // 
+      ActionOverride("Barrel 8",CreateItem("SCRXX12",0,0,0)) // 
+      ActionOverride("Barrel 8",CreateItem("SCRXX26",0,0,0)) // 
+      ActionOverride("Crate 2",CreateItem("SCRXX10",0,0,0)) // 
+      ActionOverride("Crate 2",CreateItem("SCRXX25",0,0,0)) // 
+      ActionOverride("Crate 3",CreateItem("SCRXX06",0,0,0)) // 
+      ActionOverride("Table 8",CreateItem("RNDTRE06",0,0,0)) // 
+      Continue()
+END

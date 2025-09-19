@@ -1,0 +1,19 @@
+// Brynnlaw
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1600",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1600",1)
+      ActionOverride("Container 4",CreateItem("SCRXX01",0,0,0) // 
+      ActionOverride("Container 4",CreateItem("SCRXX08",0,0,0) // 
+      ActionOverride("Container 4",CreateItem("SCRXX16",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX26",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX22",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX07",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX13",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("SCRXX05",0,0,0) // 
+      Continue()
+END

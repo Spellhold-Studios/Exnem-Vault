@@ -1,0 +1,13 @@
+//Docks, Harpers Main Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0308",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0308",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("SCRXX16",0,0,0) // Poltergeist
+      ActionOverride("Table 1",CreateItem("RNDTRE04",0,0,0) // 
+      Continue()
+END

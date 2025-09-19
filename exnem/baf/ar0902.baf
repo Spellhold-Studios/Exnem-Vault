@@ -1,0 +1,12 @@
+// Temple District, Lathander
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0902",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0902",1)
+      ActionOverride("Chest 1",CreateItem("XSTF001",0,0,0) // 
+      ActionOverride("Shelf 3",CreateItem("XSTF005",0,0,0) // 
+      Continue()
+END

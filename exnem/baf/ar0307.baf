@@ -1,0 +1,21 @@
+//Docks, Shadow Thieves Downstairs Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0307",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0307",1)
+      ActionOverride("Barrel 1",CreateItem("SCRXX10",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("SCRXX13",0,0,0) // Bio
+      ActionOverride("Barrel 1",CreateItem("SCRXX14",0,0,0) // Demi
+      ActionOverride("Barrel 5",CreateItem("SCRXX11",0,0,0) // 
+      ActionOverride("Barrel 5",CreateItem("SCRXX15",0,0,0) // 
+      ActionOverride("Drawer 2",CreateItem("XGLV001",0,0,0) // 
+      ActionOverride("Safe 1",CreateItem("SCRXX16",0,0,0) // 
+      ActionOverride("Shirt 1",CreateItem("AMULX03",0,0,0) // 
+      ActionOverride("Shirt 1",CreateItem("SCRXX17",0,0,0) // 
+      ActionOverride("Table 3",CreateItem("SCRXX18",0,0,0) // 
+      ActionOverride("Table 8",CreateItem("SCRXX19",0,0,0) // 
+      Continue()
+END

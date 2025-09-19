@@ -1,0 +1,15 @@
+//Docks, Harpers Area, Upstairs
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0309",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0309",1)
+      ActionOverride("Barrel 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Chest 3",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Chest 4",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Shelf 10",CreateItem("SCRXX06",0,0,0) // Curaga
+      ActionOverride("Shelf 4",CreateItem("SCRXX07",0,0,0) // Phoenix Down
+      Continue()
+END

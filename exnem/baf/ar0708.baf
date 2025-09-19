@@ -1,0 +1,12 @@
+// Promenade, House
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0708",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0708",1)
+      ActionOverride("Barrel 1",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("XSWD003",0,0,0) // 
+      Continue()
+END

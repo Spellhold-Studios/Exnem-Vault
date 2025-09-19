@@ -1,0 +1,17 @@
+// Underdark, beholder area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2101",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2101",1)
+      ActionOverride("Hidden 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Hidden 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Hidden 1",CreateItem("XSWD008",0,0,0) // 
+      ActionOverride("Hidden 3",CreateItem("SCRXX21",0,0,0) // 
+      ActionOverride("Hidden 4",CreateItem("SCRXX22",0,0,0) // 
+      ActionOverride("Hidden 5",CreateItem("XARM005",0,0,0) // 
+      ActionOverride("Hidden 5",CreateItem("XSWD002",0,0,0) // 
+      Continue()
+END

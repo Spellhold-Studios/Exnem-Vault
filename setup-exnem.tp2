@@ -1,0 +1,2586 @@
+//tp2 Instructions
+BACKUP ~exnem/backup~ 
+AUTHOR ~Sir_BillyBob~
+
+BEGIN ~Exnem Vault v5, Install Items~
+
+/////////////////////////
+// Projectiles to add  //
+/////////////////////////
+
+ADD_PROJECTILE  ~Exnem/XPRO01.PRO~
+ COPY ~Exnem/SPL/SPWIX03.SPL~ ~override/SPWIX03.SPL~
+   SAY NAME1 ~Smart Fireball~ 
+   SAY UNIDENTIFIED_DESC ~Smart Fireball (Evocation) 
+Level: 5
+Range: Visual range of caster 
+Duration: Instantaneous 
+
+This spell produces a fireball that changes according to the caster's level.
+
+At levels below 6 it will behave like a normal fireball, damaging party members nearby.
+At levels 6-9 the fireball will no longer damage party members in the area and fire damage and radius increases.
+At levels 10-14 it also casts fear upon hit creatures.
+At level 15 casting is instant and fear is replaced by horror and silence, plus fire damage and radius are increased.~ 
+   WRITE_SHORT  0x0c0 ~%XPRO01%~
+   WRITE_SHORT  0x0e8 ~%XPRO01%~
+   WRITE_SHORT  0x110 ~%XPRO01%~
+   WRITE_SHORT  0x138 ~%XPRO01%~
+   WRITE_SHORT  0x160 ~%XPRO01%~
+   WRITE_SHORT  0x188 ~%XPRO01%~
+
+ADD_PROJECTILE  ~Exnem/XPRO01.PRO~
+ COPY ~Exnem/SPL/SPWIX03.SPL~ ~override/SPWIX03.SPL~
+   SAY NAME1 ~Smart Fireball~ 
+   SAY UNIDENTIFIED_DESC ~Smart Fireball (Evocation) 
+Level: 5
+Range: Visual range of caster 
+Duration: Instantaneous 
+
+This spell produces a fireball that changes according to the caster's level.
+
+At levels below 6 it will behave like a normal fireball, damaging party members nearby.
+At levels 6-9 the fireball will no longer damage party members in the area and fire damage and radius increases.
+At levels 10-14 it also casts fear upon hit creatures.
+At level 15 casting is instant and fear is replaced by horror and silence, plus fire damage and radius are increased.~ 
+   WRITE_SHORT  0x0c0 ~%XPRO01%~
+   WRITE_SHORT  0x0e8 ~%XPRO01%~
+   WRITE_SHORT  0x110 ~%XPRO01%~
+   WRITE_SHORT  0x138 ~%XPRO01%~
+   WRITE_SHORT  0x160 ~%XPRO01%~
+   WRITE_SHORT  0x188 ~%XPRO01%~
+
+ADD_PROJECTILE  ~Exnem/XPRO02.PRO~
+ COPY ~Exnem/SPL/SPWIX02.SPL~  ~override/SPWIX02.SPL~
+  SAY NAME1 ~Hand of Massacre~ 
+  SAY UNIDENTIFIED_DESC ~Hand of Massacre
+(Necromancy) 
+Level: 8
+Required Level: 10
+Range: 60
+Duration: Instant 
+Casting Time: 6 
+Area of Effect: 50
+Saving Throw: None 
+
+When this spell is cast, all the creatures that are not in your party take 60 hit points of damage.  100 hit points are added to the caster's current hit points, with any hit points over the caster's normal maximum treated as temporary additional hit points.  The temporary hit points last for 5 turns.
+
+Note: This spell may not be cast multiple times to radically increase the caster's hit-points.  The caster must wait for the first Hand of Massacre spell to run its course before casting another.~ 
+   WRITE_SHORT  0x098 ~%XPRO02%~
+
+ADD_PROJECTILE  ~Exnem/XPRO03.PRO~
+ COPY ~Exnem/SPL/SPWIX04.SPL~ ~override/SPWIX04.SPL~
+  SAY NAME1 ~Putrid Leech~ 
+  SAY UNIDENTIFIED_DESC ~Putrid Leech
+(Necromancy) 
+Level: 8
+Required Level: 5
+Range: 60
+Duration: 25 Secs 
+Casting Time: 2 
+Area of Effect: 50
+Saving Throw: Death/Poison
+Save Penalty: -15 
+
+Upon casting this spell, all the enemies in the area are drained 5 levels and poisoned for a duration of 25 seconds, inflicting 10 hit/sec.
+
+Enemies affected by this spell will become clumsy and slow, while dying slowly.~ 
+  WRITE_SHORT  0x098 ~%XPRO03%~
+  SAY 0x15e ~Five Levels Drained~ 
+
+// ADD PROJECTILE  ~Exnem/XPRO04.PRO~
+
+ADD_PROJECTILE  ~Exnem/XPRO05.PRO~
+ COPY ~Exnem/SPL/SPWIX12.SPL~ ~override/SPWIX12.SPL~
+   SAY NAME1 ~Outburst Marvel~ 
+   SAY UNIDENTIFIED_DESC ~Outburst Marvel 
+(Enchantment/Charm) 
+Level: 8
+Range: Visual range of caster 
+Duration: 8 min
+Casting Time: 5 
+Area of Effect: 30 feet 
+Saving Throw: Neg. 
+
+This spell affects any creatures in the area it is cast upon. The term creature means any living and undead form, including humans, orcs, animals, zombies, vampires, monsters, etc.
+
+The creatures receive a saving throw vs. spell to avoid the effect (with a -23 modifier), with any adjustment due to Wisdom.
+If the spell recipients fail their saving throw, they regard the caster as a trusted friend and ally to be heeded and protected.  The caster may give them orders, and the charmed individuals will carry them out as quickly as possible.
+If the caster harms, or attempts to harm, the charmed creatures by some overt action, or if a dispel magic spell is successfully cast upon the charmed creatures, the charm spell is broken. 
+If two or more charm effects simultaneously affect a creature, the most recent charm takes precedence.  Note that the subject has full memory of the events that took place while he was charmed. 
+Also note that you cannot have a charmed creature leave the area where he was charmed.~ 
+   WRITE_SHORT  0x098 ~%XPRO05%~
+
+ COPY ~Exnem\SPL/SPWIX13.SPL~ ~override/SPWIX13.SPL~
+   SAY NAME1 ~Medusa’s Stare~ 
+   SAY UNIDENTIFIED_DESC ~Medusa’s Stare
+(Enchantment/Charm) 
+Level: 8
+Range: Visual range of caster 
+Duration: Permanent
+Casting Time: 3 
+Area of Effect: 30 feet 
+Saving Throw: Neg. 
+
+This spell will petrify any creatures in the area that miss making their saving throw vs. petrify. This spell hampers the targets with a -23 saving penalty.~ 
+   WRITE_SHORT  0x098 ~%XPRO05%~
+
+////////////////////////////
+//  Common stuff to copy  //
+////////////////////////////
+
+COPY ~exnem\BAM~ ~override~
+COPY ~exnem\EFF~ ~override~
+COPY ~exnem\BCS~ ~override~
+
+/////////////////////////
+// Spells to compile   //
+/////////////////////////
+
+COPY ~exnem\SPL/SPPRX01.SPL~ ~override/SPPRX01.SPL~        
+  SAY NAME1 ~Curaga~ 
+  SAY UNIDENTIFIED_DESC ~Curaga (Necromancy) 
+Level: 4
+Sphere: Healing 
+Range: Sight of caster 
+Duration: Permanent 
+Casting Time: 5 
+Area of Effect: 30 foot radius
+Saving Throw: None 
+
+When casting this spell, the priest must picture the faces of his fellow party members clearly and focus on the unity of the group.  Upon completion, all party members within 30 foot radius of the caster are fully healed.
+  
+Curing is permanent only insofar as the creature does not sustain further damage; caused wounds will heal - or can be cured - just as any normal injury.~ 
+  SAY 0xfe ~Healed~ 
+
+COPY ~exnem/SPL/SPPRX02.SPL~ ~override/SPPRX02.SPL~        
+  SAY NAME1 ~Phoenix Down~ 
+  SAY UNIDENTIFIED_DESC ~Phoenix Down (Necromancy) 
+Level: 6
+Required Level: 10
+Sphere: Healing 
+Range: Sight of caster 
+Duration: Permanent 
+Casting Time: 5 
+Area of Effect: 30 foot radius
+Saving Throw: None 
+
+This spell calls upon the power of the Phoenix, giving the caster the ability to raise any dead party members and healing them completely.
+
+This spell has a 50% chance of making the caster unconscious, due to extreme concentration.~ 
+  SAY 0xfe ~Healed~ 
+
+COPY ~exnem/SPL/SPPRX03.SPL~ ~override/SPPRX03.SPL~
+  SAY NAME1 ~Softness~ 
+  SAY UNIDENTIFIED_DESC ~Softness 
+(Abjuration)
+Level: 5
+Range: 20
+Duration:  8 min
+Casting Time: 1
+Area of Effect: Area
+Saving Throw: None
+
+This spell grants the recipients immunity to all petrification attacks.  This includes basilisk and medusa gaze, cursed scrolls of petrification, etc.~ 
+  SAY 0xce ~Gaze Reflection~ 
+
+COPY ~exnem/SPL/SPPRX04.SPL~ ~override/SPPRX04.SPL~
+  SAY NAME1 ~Mind Ripple~ 
+  SAY UNIDENTIFIED_DESC ~Mind Ripple  (Enchantment/Charm) 
+Level: 6
+Sphere: Chaos
+Range:  Visual sight of caster 
+Duration: 1 turn/level
+Casting Time: 3
+Area of Effect: party
+Saving Throw: None
+
+Mind Ripple renders several creatures immune to magical commands.  Suggestion, Charm, Domination, Command, Sleep, Maze, and Confusion are all spells that fit into this category.  This spell also protects the targets from psionic blast.  This spell lasts for the duration or until dispelled.~ 
+
+COPY ~exnem/SPL/SPPRX05.SPL~ ~override/SPPRX05.SPL~
+  SAY NAME1 ~Health Fountain~ 
+  SAY UNIDENTIFIED_DESC ~Health Fountain 
+(Abjuration)
+Level: 6
+Range: 20
+Duration:  5 min
+Casting Time: 1
+Area of Effect: Area
+Saving Throw: None
+
+This spell grants the recipients the power to heal their wounds automatically. This will happen at a 1 hp/sec rate, and lasts for 5 minutes.~ 
+
+COPY ~exnem/SPL/SPPRX06.SPL~ ~override/SPPRX06.SPL~
+  SAY NAME1 ~Stone Heart~ 
+  SAY UNIDENTIFIED_DESC ~Stone Heart  (Schoolless) 
+Level: 5
+Sphere: Shield 
+Range: Sight of caster 
+Duration: 5 min 
+Casting Time: 5 
+Area of Effect: Party
+
+This spell is a powerful protective one.
+Once cast, the hearts of the recipients will be covered with an impenetrable coat of stone, protecting them from any type of death for the duration of the spell.~ 
+
+COPY ~exnem/SPL/SPWIX01.SPL~ ~override/SPWIX01.SPL~
+  SAY NAME1 ~Fang of Dracul~ 
+  SAY UNIDENTIFIED_DESC ~Fang of Dracul
+(Necromancy) 
+Level: 6
+Range: Touch
+Duration: Instant 
+Casting Time: 0 
+Area of Effect: Target creature
+Saving Throw: None 
+
+When this spell is cast, the target loses 60 hit.  These hit points are added to the caster's current hit points, with any hit points over the caster's normal maximum treated as temporary additional hit points.  The temporary hit points last for 5 turns.
+
+Note: This spell may not be cast multiple times to radically increase the caster's hit-points.  The caster must wait for the first Hand of Dracul spell to run its course before casting another.~ 
+
+COPY ~exnem/SPL/SPWIX05.SPL~ ~override/SPWIX05.SPL~
+  SAY NAME1 ~Dimension Door~ 
+  SAY UNIDENTIFIED_DESC ~Dimension Door (Alteration) 
+Level: 7
+Range: 0
+Duration: Instant 
+Casting Time: 1
+Area of Effect: Party
+Saving Throw: None 
+
+This spell transports the party to any place on the map. When the spell is cast, a dimensional portal opens up in front of each member.  Upon passing through the portal, the party finds itself at its chosen destination.~ 
+
+COPY ~exnem/SPL/SPWIX06.SPL~ ~override/SPWIX06.SPL~
+  SAY NAME1 ~Firaga~ 
+  SAY UNIDENTIFIED_DESC ~Firaga (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+
+This spell produces a flamestrike that becomes stronger with the caster's level.
+
+Firaga will increase damage, range and reduce casting time, every two levels of the caster up to level 20, when it will stop growing.
+
+At the lowest level Firaga produces 3-10 fire damage.
+At the highest level it will give 21-200 + fire damage.~ 
+
+COPY ~exnem/SPL/SPWIX07.SPL~ ~override/SPWIX07.SPL~
+  SAY NAME1 ~Blizzaga~ 
+  SAY UNIDENTIFIED_DESC ~Blizzaga (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Single
+
+This spell makes an elemental rain of ice that becomes stronger with the caster's level.
+
+Blizzaga will increase damage, range and reduce casting time, every two levels of the caster up to level 20, when it will stop growing.~ 
+
+COPY ~exnem/SPL/SPWIX08.SPL~ ~override/SPWIX08.SPL~
+  SAY NAME1 ~Thundaga~ 
+  SAY UNIDENTIFIED_DESC ~Thundaga (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Single
+
+This spell produces a Thunderstrike that becomes stronger with the caster's level.
+
+Thundaga will increase damage, range and reduce casting time, every two levels of the caster up to level 20, when it will stop growing.
+
+At the lowest level Thundaga produces 3-10 lightning damage.
+At the highest level it will give 21-200 + lightning damage.~ 
+
+COPY ~exnem/SPL/SPWIX09.SPL~ ~override/SPWIX09.SPL~
+  SAY NAME1 ~Bio~ 
+  SAY UNIDENTIFIED_DESC ~Bio (Schoolless) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Single
+
+This spell poisons any creature, with damage depending on the caster's level.
+
+Low levels will make as little as 1 hit/sec for 5 secs.
+Highest levels will damage for 20 hit/sec for 15 secs. Making this a devastating spell at higher levels.
+
+Once the caster has reached level 20 this spell will stop growing.~ 
+
+COPY ~exnem/SPL/SPWIX10.SPL~ ~override/SPWIX10.SPL~
+  SAY NAME1 ~Wind~ 
+  SAY UNIDENTIFIED_DESC ~Wind (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Area
+
+When casting this spell upon a creature, it will be thrown away from the caster, receiving some damage on the way.
+
+The strength of the spell is calculated by the caster's level as follows:
+
+At level 1: The creature will be thrown away 5 feet from the caster and remain stunned for 5 secs.
+At level 10: The creature will be thrown away 15 feet from the caster and remain stunned for 15 secs, receiving 10d10 damage.
+At level 20: The creature will be thrown away 40 feet from the caster and remain stunned for 40 secs, receiving 25d15 damage.~ 
+
+COPY ~exnem/SPL/SPWIX11.SPL~ ~override/SPWIX11.SPL~
+  SAY NAME1 ~Demi~ 
+  SAY UNIDENTIFIED_DESC ~Demi (Schoolless) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Saving Throw: Save vs. Spells
+Saving Bonus:0, -1/per caster level
+Target: Single
+
+This spell alters the gravitational field around the target at an atomic level, the effect is an extreme chaos inside of the targets spiritual and material core.
+
+Because this spell works at an atomic level, the target suffers the same, be it a small or large creature.
+
+What this magic actually does, is drain a % of life from the target, which increases as the caster gains levels (eg. 5%, 10%, 15%, etc).
+
+This spell will grow up to level 30. At that point the spell will have a 30% chance of draining 100% of life from the target unless it makes a save vs. spells with a bonus of +25.~ 
+
+COPY ~exnem/SPL/SPWIX14.SPL~ ~override/SPWIX14.SPL~
+  SAY NAME1 ~Poltergeist~ 
+  SAY UNIDENTIFIED_DESC ~Poltergeist (Necromancy) 
+Level: 3
+Range: Increase with level
+Duration: 5 min
+Casting Time: Decrees with level 
+Area of Effect: area
+Saving Throw: None 
+
+When this spell is cast, it will condense all the anti-matter in the area to form a dimensional vortex that will bring forth a being from another dimension into your command.
+
+This creature will be at your command even if you cast fireball-like spells that can harm them. They still can be charmed though, just like any other creature.
+The type of creature brought by the vortex will depend on the caster's level, but may be any of the following:
+
+Carrion Crawlers, Zombie Lords, Clay Golems, Brain Golems, Male Vampires, Female Vampires, Mind Flayers, Vampiric Illithids, Demons, Demi-Liches or Fire Giants.
+
+This spell will be at it's maximum when the caster reaches level 25.~ 
+
+COPY ~exnem/SPL/SPWIX15.SPL~ ~override/SPWIX15.SPL~
+  SAY NAME1 ~Panic~ 
+  SAY UNIDENTIFIED_DESC ~Panic (Enchantment/Charm) 
+Level: 6
+Range: 15
+Duration: 5 min
+Casting Time: 1 
+Area of Effect: One Target
+Saving Throw: None 
+
+Upon casting, this spell will make a creature fall in a total state of panic. It will drop its weapons and all spell defenses, leaving it quite vulnerable.~ 
+
+/////////////////////////
+// Scrolls to compile  //
+/////////////////////////
+
+COPY ~exnem/ITEM/XBAG01.ITM~ ~override/XBAG01.ITM~
+COPY ~exnem/ITEM/XBAG01.STO~ ~override/XBAG01.STO~
+COPY ~exnem/ITEM/XBAG02.ITM~ ~override/XBAG02.ITM~
+COPY ~exnem/ITEM/XBAG02.STO~ ~override/XBAG02.STO~
+
+COPY ~exnem/ITEM/SCRXX01.ITM~ ~override/SCRXX01.ITM~
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Smart Fireball~ 
+  SAY DESC ~Smart Fireball (Evocation) 
+Level: 5
+Range: Visual range of caster 
+Duration: Instantaneous 
+Casting Time: 3 
+Saving Throw: 1/2 
+
+This spell produces a fireball that changes according to the caster's level.
+
+At levels below 6 it will behave like a normal fireball, damaging party members nearby.
+At levels 6-9 the fireball will no longer damage party members in the area and fire damage and radius increases.
+At levels 10-14 it also casts fear upon hit creatures.
+At level 15 casting is instant and fear is replaced by horror and silence, plus fire damage and radius are increased.~ 
+
+COPY ~exnem/ITEM/SCRXX02.ITM~ ~override/SCRXX02.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Fang of Dracula~ 
+  SAY DESC ~Fang of Dracula
+(Necromancy) 
+Level: 6
+Range: Touch
+Duration: Instant 
+Casting Time: 0 
+Area of Effect: Target creature
+Saving Throw: None 
+
+When this spell is cast, the target loses 60 hit.  These hit points are added to the caster's current hit points, with any hit points over the caster's normal maximum treated as temporary additional hit points.  The temporary hit points last for 5 turns.
+
+Note: This spell may not be cast multiple times to radically increase the caster's hit-points.  The caster must wait for the first Fang of Dracula spell to run its course before casting another.~ 
+
+COPY ~exnem/ITEM/SCRXX03.ITM~ ~override/SCRXX03.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Hand of Massacre~ 
+  SAY DESC ~Hand of Massacre
+(Necromancy) 
+Level: 8
+Required Level: 10
+Range: 60
+Duration: Instant 
+Casting Time: 6 
+Area of Effect: 50
+Saving Throw: None 
+
+When this spell is cast, all the creatures that are not in your party take 60 hit points of damage.  100 hit points are added to the caster's current hit points, with any hit points over the caster's normal maximum treated as temporary additional hit points.  The temporary hit points last for 5 turns.
+
+Note: This spell may not be cast multiple times to radically increase the caster's hit-points.  The caster must wait for the first Hand of Massacre spell to run its course before casting another.~ 
+
+COPY ~exnem/ITEM/SCRXX04.ITM~ ~override/SCRXX04.ITM~         
+  SAY NAME1 ~Candle~ 
+  SAY NAME2 ~Candle of Phoenix Down~ 
+  SAY DESC ~A Candle of Knowledge is simply burned and the user sits and inhales the fumes while meditating. From this the magical properties of the candle are realized and it allows one to gain access to prayers that was previously unattainable by the individual. These candles are generally only used by those associated with divine magics and can be specially restricted to particular types like Paladins, Rangers, Priests, or Druids.
+This candle bestows the General Priestly Prayer called Phoenix Down.~ 
+
+COPY ~exnem/ITEM/SCRXX05.ITM~ ~override/SCRXX05.ITM~         
+  SAY NAME1 ~Candle~ 
+  SAY NAME2 ~Candle of Curaga~ 
+  SAY DESC ~A Candle of Knowledge is simply burned and the user sits and inhales the fumes while meditating. From this the magical properties of the candle are realized and it allows one to gain access to prayers that was previously unattainable by the individual. These candles are generally only used by those associated with divine magics and can be specially restricted to particular types like Paladins, Rangers, Priests, or Druids.
+This candle bestows the General Priestly Prayer called Curaga.~ 
+
+COPY ~exnem/ITEM/SCRXX06.ITM~ ~override/SCRXX06.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Curaga~ 
+  SAY DESC ~Curaga (Necromancy) 
+Level: 4
+Sphere: Healing 
+Range: Sight of caster 
+Duration: Permanent 
+Casting Time: 5 
+Area of Effect: 30 foot radius
+Saving Throw: None 
+
+When casting this spell, the priest must picture the faces of his fellow party members clearly and focus on the unity of the group.  Upon completion, all party members within 30 foot radius of the caster are fully healed.
+  
+Curing is permanent only insofar as the creature does not sustain further damage; caused wounds will heal - or can be cured - just as any normal injury. ~ 
+
+COPY ~exnem/ITEM/SCRXX07.ITM~ ~override/SCRXX07.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Phoenix Down~ 
+  SAY DESC ~Phoenix Down (Necromancy) 
+Level: 6
+Required Level: 10
+Sphere: Healing 
+Range: Sight of caster 
+Duration: Permanent 
+Casting Time: 5 
+Area of Effect: 30 foot radius
+Saving Throw: None 
+
+This spell calls upon the power of the Phoenix, giving the caster the ability to raise any dead party members and healing them completely.
+
+This spell has a 50% chance of making the caster unconscious, due to extreme concentration.~ 
+
+COPY ~exnem/ITEM/SCRXX08.ITM~ ~override/SCRXX08.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Putrid Leech~ 
+  SAY DESC ~Putrid Leech
+(Necromancy) 
+Level: 8
+Required Level: 5
+Range: 60
+Duration: 25 Secs 
+Casting Time: 2 
+Area of Effect: 50
+Saving Throw: Death/Poison
+Save Penalty: -15 
+
+Upon casting this spell, all the enemies in the area are drained 5 levels and poisoned for a duration of 25 seconds, inflicting 10 hit/sec.
+
+Enemies affected by this spell will become clumsy and slow, while dying slowly.~ 
+
+COPY ~exnem/ITEM/SCRXX09.ITM~ ~override/SCRXX09.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Dimension Door~ 
+  SAY DESC ~Use this scroll to learn the Dimension Door spell with one of your mages.
+
+This spell can take an entire party to any other part of the map they have already been to.
+
+This spell cannot take the party to another map, only to another area of the same map.~ 
+
+COPY ~exnem/ITEM/SCRXX10.ITM~ ~override/SCRXX10.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Firaga~ 
+  SAY DESC ~Firaga (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+
+This spell produces a flamestrike that becomes stronger with the caster's level.
+
+Firaga will increase damage, range and reduce casting time, every two levels of the caster up to level 20, when it will stop growing.
+
+At the lowest level Firaga produces 3-10 fire damage.
+At the highest level it will give 21-200 + fire damage.~ 
+
+COPY ~exnem/ITEM/SCRXX11.ITM~ ~override/SCRXX11.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Blizzaga~ 
+  SAY DESC ~Blizzaga (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Single
+
+This spell makes an elemental rain of ice that becomes stronger with the caster's level.
+
+Blizzaga will increase damage, range and reduce casting time, every two levels of the caster up to level 20, when it will stop growing.~ 
+
+COPY ~exnem/ITEM/SCRXX12.ITM~ ~override/SCRXX12.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Thundaga~ 
+  SAY DESC ~Thundaga (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Single
+
+This spell produces a Thunderstrike that becomes stronger with the caster's level.
+
+Thundaga will increase damage, range and reduce casting time, every two levels of the caster up to level 20, when it will stop growing.
+
+At the lowest level Thundaga produces 3-10 lightning damage.
+At the highest level it will give 21-200 + lightning damage.~ 
+
+COPY ~exnem/ITEM/SCRXX13.ITM~ ~override/SCRXX13.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Bio~ 
+  SAY DESC ~Bio (Schoolless) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Single
+
+This spell poisons any creature, with damage depending on the caster's level.
+
+Low levels will make as little as 1 hit/sec for 5 secs.
+Highest levels will damage for 20 hit/sec for 15 secs. Making this a devastating spell at higher levels.
+
+Once the caster has reached level 20 this spell will stop growing~ 
+
+COPY ~exnem/ITEM/SCRXX14.ITM~ ~override/SCRXX14.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Demi~ 
+  SAY DESC ~Demi (Schoolless) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Saving Throw: Save vs. Spells
+Saving Bonus:0, -1/per caster level
+Target: Single
+
+This spell alters the gravitational field around the target at an atomic level, the effect is an extreme chaos inside of the targets spiritual and material core.
+
+Because this spell works at an atomic level, the target suffers the same, be it a small or large creature.
+
+What this magic actually does, is drain a % of life from the target, which increases as the caster gains levels (eg. 5%, 10%, 15%, etc).
+
+This spell will grow up to level 30. At that point the spell will have a 30% chance of draining 100% of life from the target unless it makes a save vs. spells with a bonus of +25.~ 
+
+COPY ~exnem/ITEM/SCRXX15.ITM~ ~override/SCRXX15.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Health Fountain~ 
+  SAY DESC ~Health Fountain 
+(Abjuration)
+Level: 6
+Range: 20
+Duration:  5 min
+Casting Time: 1
+Area of Effect: Area
+Saving Throw: None
+
+This spell grants the recipients the power to heal their wounds automatically. This will happen at a 1 hp/sec rate, and lasts for 5 minutes.~ 
+
+COPY ~exnem/ITEM/SCRXX16.ITM~ ~override/SCRXX16.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Poltergeist~ 
+  SAY DESC ~Poltergeist (Necromancy) 
+Level: 3
+Range: Increase with level
+Duration: 5 min
+Casting Time: Decrees with level 
+Area of Effect: area
+Saving Throw: None 
+
+When this spell is cast, it will condense all the anti-matter in the area to form a dimensional vortex that will bring forth a being from another dimension into your command.
+
+This creature will be at your command even if you cast fireball-like spells that can harm them. They still can be charmed though, just like any other creature.
+
+The type of creature brought by the vortex will depend on the caster's level, but may be any of the following:
+
+Carrion Crawlers, Zombie Lords, Clay Golems, Brain Golems, Male Vampires, Female Vampires, Mind Flayers, Vampiric Illithids, Demons, Demi-Liches or Fire Giants.
+
+This spell will be at it's maximum when the caster reaches level 25.~ 
+
+COPY ~exnem/ITEM/SCRXX17.ITM~ ~override/SCRXX17.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Panic~ 
+  SAY DESC ~Panic (Enchantment/Charm) 
+Level: 6
+Range: 15
+Duration: 5 min
+Casting Time: 1 
+Area of Effect: One Target
+Saving Throw: None 
+
+Upon casting, this spell will make a creature fall in a total state of panic. It will drop its weapons and all spell defenses, leaving it quite vulnerable.~ 
+
+COPY ~exnem/ITEM/SCRXX18.ITM~ ~override/SCRXX18.ITM~         
+  SAY NAME1 ~Candle~ 
+  SAY NAME2 ~Candle of Softness~ 
+  SAY DESC ~A Candle of Knowledge is simply burned and the user sits and inhales the fumes while meditating. From this the magical properties of the candle are realized and it allows one to gain access to prayers that was previously unattainable by the individual. These candles are generally only used by those associated with divine magics and can be specially restricted to particular types like Paladins, Rangers, Priests, or Druids.
+This candle bestows the General Priestly Prayer called Softness.~ 
+
+COPY ~exnem/ITEM/SCRXX19.ITM~ ~override/SCRXX19.ITM~         
+  SAY NAME1 ~Candle~ 
+  SAY NAME2 ~Candle of Mind Ripple~ 
+  SAY DESC ~A Candle of Knowledge is simply burned and the user sits and inhales the fumes while meditating. From this the magical properties of the candle are realized and it allows one to gain access to prayers that was previously unattainable by the individual. These candles are generally only used by those associated with divine magics and can be specially restricted to particular types like Paladins, Rangers, Priests, or Druids.
+This candle bestows the General Priestly Prayer called Mind Ripple.~ 
+
+COPY ~exnem/ITEM/SCRXX20.ITM~ ~override/SCRXX20.ITM~         
+  SAY NAME1 ~Candle~ 
+  SAY NAME2 ~Candle of Health Fountain~ 
+  SAY DESC ~A Candle of Knowledge is simply burned and the user sits and inhales the fumes while meditating. From this the magical properties of the candle are realized and it allows one to gain access to prayers that was previously unattainable by the individual. These candles are generally only used by those associated with divine magics and can be specially restricted to particular types like Paladins, Rangers, Priests, or Druids.
+This candle bestows the General Priestly Prayer called Health Fountain.~ 
+
+COPY ~exnem/ITEM/SCRXX21.ITM~ ~override/SCRXX21.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Softness~ 
+  SAY DESC ~Softness 
+(Abjuration)
+Level: 5
+Range: 20
+Duration:  8 min
+Casting Time: 1
+Area of Effect: Area
+Saving Throw: None
+
+This spell grants the recipients immunity to all petrification attacks.  This includes basilisk and medusa gaze, cursed scrolls of petrification, etc.~ 
+
+COPY ~exnem/ITEM/SCRXX22.ITM~ ~override/SCRXX22.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Mind Ripple~ 
+  SAY DESC ~Mind Ripple  (Enchantment/Charm) 
+Level: 6
+Sphere: Chaos
+Range:  Visual sight of caster 
+Duration: 1 turn/level
+Casting Time: 3
+Area of Effect: party
+Saving Throw: None
+
+Mind Ripple renders several creatures immune to magical commands.  Suggestion, Charm, Domination, Command, Sleep, Maze, and Confusion are all spells that fit into this category.  This spell also protects the targets from psionic blast.  This spell lasts for the duration or until dispelled.~ 
+
+COPY ~exnem/ITEM/SCRXX23.ITM~ ~override/SCRXX23.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Outburst Marvel~ 
+  SAY DESC ~Outburst Marvel 
+(Enchantment/Charm) 
+Level: 8
+Range: Visual range of caster 
+Duration: 8 min
+Casting Time: 5 
+Area of Effect: 30 feet 
+Saving Throw: Neg. 
+
+This spell affects any creatures in the area it is cast upon. The term creature means any living and undead form, including humans, orcs, animals, zombies, vampires, monsters, etc.
+
+The creatures receive a saving throw vs. spell to avoid the effect (with a -23 modifier), with any adjustment due to Wisdom.
+If the spell recipients fail their saving throw, they regard the caster as a trusted friend and ally to be heeded and protected.  The caster may give them orders, and the charmed individuals will carry them out as quickly as possible.
+If the caster harms, or attempts to harm, the charmed creatures by some overt action, or if a dispel magic spell is successfully cast upon the charmed creatures, the charm spell is broken. 
+If two or more charm effects simultaneously affect a creature, the most recent charm takes precedence.  Note that the subject has full memory of the events that took place while he was charmed. 
+Also note that you cannot have a charmed creature leave the area where he was charmed.~ 
+
+COPY ~exnem/ITEM/SCRXX24.ITM~ ~override/SCRXX24.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Medusa’s Stare~ 
+  SAY DESC ~Medusa’s Stare
+(Enchantment/Charm) 
+Level: 8
+Range: Visual range of caster 
+Duration: Permanent
+Casting Time: 3 
+Area of Effect: 30 feet 
+Saving Throw: Neg. 
+
+This spell will petrify any creatures in the area that miss making their saving throw vs. petrify. This spell hampers the targets with a -23 saving penalty.~ 
+
+COPY ~exnem/ITEM/SCRXX25.ITM~ ~override/SCRXX25.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Wind~ 
+  SAY DESC ~Wind (Evocation) 
+Level: 7
+Range: Level Dependant 
+Duration: Level Dependant
+Target: Area
+
+When casting this spell upon a creature, it will be thrown away from the caster, receiving some damage on the way.
+
+The strength of the spell is calculated by the caster's level as follows:
+
+At level 1: The creature will be thrown away 5 feet from the caster and remain stunned for 5 secs.
+At level 10: The creature will be thrown away 15 feet from the caster and remain stunned for 15 secs, receiving 10d10 damage.
+At level 20: The creature will be thrown away 40 feet from the caster and remain stunned for 40 secs, receiving 25d15 damage.~ 
+
+COPY ~exnem/ITEM/SCRXX26.ITM~ ~override/SCRXX26.ITM~         
+  SAY NAME1 ~Scroll~ 
+  SAY NAME2 ~Stone Heart~ 
+  SAY DESC ~Stone Heart  (Schoolless) 
+Level: 5
+Sphere: Shield 
+Range: Sight of caster 
+Duration: 5 min 
+Casting Time: 5 
+Area of Effect: Party
+
+This spell is a powerful protective one.
+Once cast, the hearts of the recipients will be covered with an impenetrable coat of stone, protecting them from any type of death for the duration of the spell.~ 
+
+COPY ~exnem/ITEM/SCRXX27.ITM~ ~override/SCRXX27.ITM~         
+  SAY NAME1 ~Candle~ 
+  SAY NAME2 ~Candle of Stone Heart~ 
+  SAY DESC ~A Candle of Knowledge is simply burned and the user sits and inhales the fumes while meditating. From this the magical properties of the candle are realized and it allows one to gain access to prayers that was previously unattainable by the individual. These candles are generally only used by those associated with divine magics and can be specially restricted to particular types like Paladins, Rangers, Priests, or Druids.
+This candle bestows the General Priestly Prayer called Stone Heart.~ 
+
+/////////////////////////
+//  Items to compile   //
+/////////////////////////
+
+COPY ~exnem/ITEM/AMULX01.ITM~ ~override/AMULX01.ITM~        
+  SAY NAME1 ~Amulet~ 
+  SAY NAME2 ~Eye of The Beholder~ 
+  SAY UNIDENTIFIED_DESC ~Amulets are usually magical devices that are commonly worn around the neck, suspended from a chain.  The type of chain that comes with an amulet generally increases the item's aesthetic value, not its magical properties.  Only one amulet can be dangled from the neck at a time.~ 
+  SAY DESC ~Eye of The Beholder
+
+This Amulet renders the wearer immune to every form of petrification. It also gives the user the ability to restore any stoned friend back to normal.
+
+STATISTICS
+
+Special Abilities: Stone to Flesh
+9 Times per Day
+Equipped Abilities: Immune to Petrify~ 
+
+COPY ~exnem/ITEM/AMULX02.ITM~ ~override/AMULX02.ITM~        
+  SAY NAME1 ~Silver Amulet~ 
+  SAY NAME2 ~Amulet of Mind Warding~ 
+  SAY UNIDENTIFIED_DESC ~Amulets are usually magical devices that are commonly worn around the neck, suspended from a chain.  The type of chain that comes with an amulet generally increases the item's aesthetic value, not its magical properties.  Only one amulet can be dangled from the neck at a time.~ 
+  SAY DESC ~Amulet of Mind Warding
+
+The history of this necklace is uncertain as are its magics.
+Some say it holds the spirit of a Mind Flayer making you invulnerable to their attacks, yet this is merely a story and non have dared to try.
+
+STATISTICS
+
+Abilities: Cast Chaos Commands
+Set Intelligence to 25~ 
+
+COPY ~exnem/ITEM/AMULX03.ITM~ ~override/AMULX03.ITM~        
+  SAY NAME1 ~Necklace~ 
+  SAY NAME2 ~Dawn's Amulet~ 
+  SAY UNIDENTIFIED_DESC ~A necklace is a piece of ornamental metal jewelry usually made of silver, gold, platinum, or other precious metals, and adorned with gems.  A necklace is always worn on the neck and can be of any length.~ 
+  SAY DESC ~Dawn was a priestess in Thyr. She was presented this amulet as a gift from her loyal servant Arguss, who had this item specially made for her.
+
+STATISTICS:
+
+Special:  +5 To All Saves While Equipped
+Regenerates 1 HP Per Second
+Infravision~ 
+
+COPY ~exnem/ITEM/CLKX01.ITM~ ~override/CLKX01.ITM~         
+  SAY NAME1 ~Cloak~ 
+  SAY NAME2 ~Adrianic Cloak of Protection~ 
+  SAY UNIDENTIFIED_DESC ~The cloak can be made in every possible shape with just about every type of fabric.  The most common forms are a circular piece of fabric with a hole in the center for the head, and fabric draped from neck, connected by a chain, brooch, cord, or pins.  Talented drow weavers have woven strands of adamantine into the cloak, thus rendering it useless if exposed to the light -- the effect of which will turn the cloak to dust.~ 
+  SAY DESC ~This cloak protects the user from a variety of spells. It renders him immune to petrify spells, and adds resistance to fire/cold and Mental domination spells.
+
+STATISTICS
+
+Protect from Petrify
+Resist Fire/Cold +50
+Resist Confusion/Fear/Rigid Thinking
+Cast Curaga once a day~ 
+
+COPY ~exnem/ITEM/STAFX0.ITM~ ~override/STAFX0.ITM~         
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~Staff of The Undead~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~Staff of The Undead
+
+This artifact of power once belonged to the mythical necromancer Chimol. Legend tells that upon being slain, he vested his soul into this staff making it a truly overpowering weapon.
+
+It has traveled afar, having passed through figures like Zorlac, Mannix and Bodhi, before reaching your hands.
+
+While equipped, this item protects the user from the undead, and has the ability to summon Undead creatures.
+Due to its evil nature, it also prevents the user from receiving any defensive magics (healing, shields, etc) as well as being unable to rest while equipping this staff. 
+
+STATISTICS
+
+Abilities: 
+20 charges
+Summon Vampire 
+5 Charges Summon Vampiric Illithid
+3 Charges Summon Lesser Demon Lord
+Protection from Undead
+Unable to Rest/Cast Defensive/Curative Spells~ 
+
+COPY ~exnem/ITEM/XARM001.ITM~ ~override/XARM001.ITM~        
+  SAY NAME1 ~Plate Mail Armor~ 
+  SAY NAME2 ~Golden Olympus Plate~ 
+  SAY UNIDENTIFIED_DESC ~Plate mail is a combination of chain armor with metal plates covering the vital areas such as the chest, abdomen and groin.  Similar in construction to bronze plate mail, true plate mail comprises of chain and leather. 
+
+STATISTICS:
+
+Armor Class: 3
+Weight: 50
+Requires: 12 Strength
+Not Usable By:
+ Bard 
+ Druid
+ Mage
+ Thief~ 
+  SAY DESC ~The third  item of 4 made by Zeus. This armor is made of all gold. Many people seek to find this armor only to die searching. Zeus spent many months enchanting it to be the best it could be. 
+
+STATISTICS:
+
+Armor Class: -3
+Special:  15% Fire Resistance While Equipped
+15% Cold Resistance While Equipped
+75% Electrical Resistance While Equipped
+Weight: 45
+Requires: 12 Strength
+Not Usable By:
+ Bard 
+ Druid
+ Mage
+ Thief~ 
+
+COPY ~exnem\ITEM/XARM002.ITM~ ~override/XARM002.ITM~        
+  SAY NAME1 ~Chain Mail Armor~ 
+  SAY NAME2 ~Behir Scale Mail~ 
+  SAY UNIDENTIFIED_DESC ~Chain mail is made of interlocking metal rings.  It is always worn over a layer of padded fabric or soft leather to prevent chafing and lessen the impact of blows.  
+
+STATISTICS:
+
+Armor Class: 5
+Weight: 40
+Requires: 8 Strength
+Not Usable By:
+ Druid 
+ Mage 
+ Thief~ 
+  SAY DESC ~This armor is forged into links of scales from the mystical blue beast called a Behir. The Behir has very powerful scales, thus making this armor one of the most powerful sets of chainmail there is.
+
+STATISTICS:
+
+Armor Class Bonus: 4
+Bonuses: 100% Resistance to Electricity and Acid
+75% Resistance to Cold
+Thieving abilities not hindered
+Weight: 10
+Requires: 9 Strength
+Not Usable By:
+ Druid 
+ Mage ~ 
+
+COPY ~exnem\ITEM/XARM003.ITM~ ~override/XARM003.ITM~        
+  SAY NAME1 ~Plate Mail Armor~ 
+  SAY NAME2 ~Ifrit Mail~ 
+  SAY UNIDENTIFIED_DESC ~Plate mail is a combination of chain armor with metal plates covering the vital areas such as the chest, abdomen and groin.  Similar in construction to bronze plate mail, true plate mail comprises of chain and leather. 
+
+STATISTICS:
+
+Armor Class: 3
+Weight: 50
+Requires: 12 Strength
+Not Usable By:
+ Bard 
+ Druid
+ Mage
+ Thief~ 
+  SAY DESC ~This armor is the legendary mail of Ifrit. It was worn by evil Sauron until the day he was slain.
+
+It is said that this armor has been tainted with ifrit's soul, the ancient fire deity.
+
+STATISTICS:
+
+Armor Class: -5
+Armor Class Bonus: 5
+Bonus: 150% Fire Resistance
+Penalties: -35% Cold Resistance
+Weight: 30
+Requires: 10 Strength
+Cast Smart Fireball 10 times per day~ 
+
+COPY ~exnem\ITEM/XARM004.ITM~ ~override/XARM004.ITM~        
+  SAY NAME1 ~Leather Armor~ 
+  SAY NAME2 ~Nemesis' Skin~ 
+  SAY UNIDENTIFIED_DESC ~This leather armor is saturated with magic~ 
+  SAY DESC ~This leather armor radiates an incredible magic power.
+It was made by an evil smith in the forges of hell.
+The abilities imbued into this armor protect you from undead creatures, and increases your life 25%.
+
+STATISTICS:
+
+Armor Class: -6
+Armor Class Bonus: 4
+Special: +5 strength while equipped
+25% resistance to all weapon damage types
+-2 dexterity while equipped
+Protection from Undead
+Increase HP 25%
+Weight: 100
+Requires: 16 Strength
+Only Usable By:
+Chaotic Fighters~ 
+
+COPY ~exnem\ITEM/XARM005.ITM~ ~override/XARM005.ITM~        
+  SAY NAME1 ~Plate Mail~ 
+  SAY NAME2 ~Plate of Camelot~ 
+  SAY UNIDENTIFIED_DESC ~Plate mail is a combination of chain armor with metal plates covering the vital areas such as the chest, abdomen and groin.  Similar in construction to bronze plate mail, true plate mail comprises of chain and leather. 
+
+STATISTICS:
+
+Armor Class: 3
+Weight: 50
+Requires: 12 Strength
+Not Usable By:
+ Bard 
+ Druid
+ Mage
+ Thief~ 
+  SAY DESC ~This particular armor was owned by Sir Lancelot. He fought many battles using this armor, and never loss one.
+
+It protects the user from being level drained and is made from an unknown material which makes it very useful in combat.
+
+STATISTICS:
+
+Armor Class: -6
+Armor Class Bonus: 4
+Protection from Level Drain
++6 Dexterity
++6 Constitution
+Weight: 35
+Requires: 15 Strength
+Not Usable By:
+ Bard
+ Druid
+ Mage
+ Thief~ 
+
+COPY ~exnem\ITEM/XARM006.ITM~ ~override/XARM006.ITM~        
+  SAY NAME1 ~Plate Mail Armor~ 
+  SAY NAME2 ~Wyvern Plate Mail~ 
+  SAY UNIDENTIFIED_DESC ~Plate mail is a combination of chain armor with metal plates covering the vital areas such as the chest, abdomen and groin.  Similar in construction to bronze plate mail, true plate mail comprises of chain and leather. 
+
+STATISTICS:
+
+Armor Class: 3
+Weight: 50
+Requires: 12 Strength
+Not Usable By:
+ Bard 
+ Druid
+ Mage
+ Thief~ 
+  SAY DESC ~This plate mail has been expertly crafted. Sheathed in the chitinous scales of the wyvern, it provides a greater degree of protection than traditional plate mail and is not susceptible to rust. As any world-weary adventurer will tell you, however, the best appreciated aspect of wyvern mail is its light weight and low encumbrance. Monsters come and go but fatigue is a constant enemy.
+
+STATISTICS:
+
+Armor Class: -3
+Bonuses: +1 to Constitution
+25% Magic Resistance
+Immune to Level Drain
+Penalties: -2 to Charisma
+-25% Fire Resistance
+Weight: 25
+Requires: 8 Strength
+Not Usable By:
+ Bard
+ Druid
+ Mage 
+ Thief~ 
+
+COPY ~exnem\ITEM/XBTS001.ITM~ ~override/XBTS001.ITM~        
+  SAY NAME1 ~Boots~ 
+  SAY NAME2 ~Felina's Boots~ 
+  SAY UNIDENTIFIED_DESC ~Boots are normally hand-made by cobblers.  Common boots are made by using a form, but good boots are designed for the foot of an individual. 
+
+STATISTICS:
+
+Weight:  4~ 
+  SAY DESC ~This boots were once the possession of the Cheetah Queen Mariselle.
+
+They'll give anyone who wears them. incredible speed and silent walking, plus added protection from missiles.
+
+STATISTICS:
+
+Special: Non-Detection
+Increased Speed
++5 Versus Missile Weapons~ 
+
+COPY ~exnem\ITEM/XBTS002.ITM~ ~override/XBTS002.ITM~        
+  SAY NAME1 ~Boots~ 
+  SAY NAME2 ~Boots of Cloud~ 
+  SAY UNIDENTIFIED_DESC ~Boots are normally hand-made by cobblers.  Common boots are made by using a form, but good boots are designed for the foot of an individual. 
+
+STATISTICS:
+
+Weight:  4~ 
+  SAY DESC ~The user of this boots cannot be damaged by any spells that affect motion, such as slow, entangle, hold, etc.
+
+STATISTICS:
+
+Armor Class Bonus: 3
+Special: Free Action~ 
+
+COPY ~exnem\ITEM/XCLB001.ITM~ ~override/XCLB001.ITM~        
+  SAY NAME1 ~Club~ 
+  SAY NAME2 ~Club of Bashing~ 
+  SAY UNIDENTIFIED_DESC ~Most clubs are stout, hardwood sticks, narrow at the grip and wider at the end.  This simple weapon has been used since mankind first began using tools.  Anyone can find a good stout piece of wood and swing it; hence the club's widespread use.
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 3
+Speed Factor: 4
+Proficiency Type: Club
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Mage~ 
+  SAY DESC ~This club gets its name from being such a good weapon in combat.
+While equipped, the character will grow in strength.
+
+STATISTICS:
+
+THACO Bonus: +4
+Damage:  2D6+4
+Damage type:  crushing
+Special:  Strength is set to 25 while equipped
+Weight: 3
+Speed Factor: 2
+Proficiency Type: Club
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Mage~ 
+
+COPY ~exnem\ITEM/XCLB002.ITM~ ~override/XCLB002.ITM~        
+  SAY NAME1 ~Morning Star~ 
+  SAY NAME2 ~Eye Crusher~ 
+  SAY UNIDENTIFIED_DESC ~You can sense there's a strong magic within this object.~ 
+  SAY DESC ~Eye Crusher has been sought by warriors all over the lands.
+
+This object "Eye Crusher" was forged in the lower pits of the purgatory by a demonic smith working for Demogorgon. It adds to the wielder protection against fear and death spells, and increased damage to Beholder type of monsters. 
+
+STATISTICS:
+
+Damage: 4D10+5
+THAC0 Bonus: 4
+Protection from petrify
+Protection from fear
+Save vs Death Bonus: 10
+Cast Stone Heart 1 per day~ 
+
+COPY ~exnem\ITEM/XCLK001.ITM~ ~override/XCLK001.ITM~        
+  SAY NAME1 ~Cloak~ 
+  SAY NAME2 ~Putrid Cape~ 
+  SAY UNIDENTIFIED_DESC ~The cloak can be made in every possible shape with just about every type of fabric.  The most common forms are a circular piece of fabric with a hole in the center for the head, and fabric draped from neck, connected by a chain, brooch, cord, or pins.  Talented drow weavers have woven strands of adamantine into the cloak, thus rendering it useless if exposed to the light -- the effect of which will turn the cloak to dust.~ 
+  SAY DESC ~This cloak is the fabled Putrid Cape.
+It is said to have some unusual powers, at least for a cloak.
+While worn it will make you immune to poison and disease. It will make any one that hits you become diseased, if they're lucky, else a rain of poisonous gases will contaminate anything in the area, except party members.
+
+STATISTICS:
+
+Armor Class Bonus: 10
+Protection from Poison
+Protection from Disease
+20% chance to cast Bio when hit
+10% chance to cast Putrid Leech when hit.~ 
+
+COPY ~exnem\ITEM/XGLV001.ITM~ ~override/XGLV001.ITM~        
+  SAY NAME1 ~Bracers~ 
+  SAY NAME2 ~Bracers of The Iron Imp~ 
+  SAY UNIDENTIFIED_DESC ~Bracers are thick bands of metal or leather that are strapped, belted, or tied to a character's forearm. ~ 
+  SAY DESC ~Falgurt Dionise, was well known around Karathur as the Iron Imp. He was feared by many, who said they had never seen an imp possess such an incredible strength and endurance, hence the nickname.
+
+It was later discovered that this bracers were the reason for the imp's unmatched strength.  One night some thieves entered his home while asleep to steal the bracers. Unfortunately, for Falgurt, he woke up while this happened, and because he wasn't wearing the bracers he fell slain by a thief’s dagger.  
+Later on the bracers got lost somewhere in Athkatla, but the legend kept on strong.
+
+STATISTICS:
+
+While Equipped:
+AC Bonus: 3
+THAC0 Bonus of 5
+Strength Bonus of 5
+HP Raised 20%~ 
+
+COPY ~exnem\ITEM/XHAM001.ITM~ ~override/XHAM001.ITM~        
+  SAY NAME1 ~War Hammer~ 
+  SAY NAME2 ~Athena's Warhammer~ 
+  SAY UNIDENTIFIED_DESC ~Mounted knights cannot effectively use long pole weapons while on horseback, and as a result, many weapons have been fitted with shorter shafts so they may be wielded with just one hand.  Maces and flails are two previous examples of this - the war hammer is another.  The horseman's war hammer is a descendant of the Lucerne hammer.  It is made entirely of steel, with rondels protecting and strengthening the grip.  Rondels are small disks of metal, often shaped into decorative designs.  The shaft is about 18 inches long.'
+
+STATISTICS:
+
+Damage:  1D4 + 1
+Damage type:  crushing
+Weight: 6
+Speed Factor: 4
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 9 Strength
+Not Usable By:
+ Druid
+ Mage 
+ Thief~ 
+  SAY DESC ~This warhammer is owned by the Goddess of War, Athena. She is a mighty warrior when she wields this weapon and many do not dare to cross her path. This weapon can also be thrown.
+
+STATISTICS:
+
+Melee:
+Damage:  2D4 + 4, +10 Electrical Damage
+THACO Bonus:  4
+Damage type:  crushing
+Special: Strength Is Set To 20 While Equipped
+Maximum HP Bonus of 5 HP While Equipped
+Weight: 4
+Speed Factor: 1
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 9 Strength
+Not Usable By:
+ Druid
+ Mage 
+ Thief
+
+Ranged:
+Damage:  2D4 + 4, +10 Electrical Damage
+THACO Bonus:  4
+Damage type:  crushing
+Strength Is Set To 19 While Equipped
+Maximum HP Bonus of 5 HP While Equipped
+Weight: 4
+Speed Factor: 1
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 9 Strength
+Not Usable By:
+ Druid
+ Mage 
+ Thief~ 
+
+COPY ~exnem\ITEM/XHLM001.ITM~ ~override/XHLM001.ITM~        
+  SAY NAME1 ~Helmet~ 
+  SAY NAME2 ~Hades Case~ 
+  SAY UNIDENTIFIED_DESC ~This class of open-face helmet, made of reinforced leather or metal, covers most of the head, save the face and neck.  These helmets commonly provide protection for the nose.  
+
+STATISTICS:
+
+Armor Class Bonus:  None
+Special:  Protects Against Critical Hits
+Weight: 2
+Not Usable By:
+Mage
+Bard~ 
+  SAY DESC ~The core of this helmet is an alien material called Morphita, which has the ability to adapt to the atmosphere and mood it's first exposed to after being forged (or been exposed to extreme conditions).
+
+This particular object was worn by a warrior who thought he could exterminate Hades by acquiring some abilities and immunities from the area and moment they were fighting. Unfortunately, Hades killed the warrior before he could even get his helmet out.
+The helmet though, did sense the mood and imbued itself with the proper immunities.
+
+STATISTICS:
+
+AC Bonus:  5
+Special: 
+Protection against horror and stun.
+Weight: 2
+Not Usable By:
+ Mage
+ Bard
+ Thief~ 
+
+COPY ~exnem\ITEM/XHLM002.ITM~ ~override/XHLM002.ITM~        
+  SAY NAME1 ~Helmet~ 
+  SAY NAME2 ~Helm of Mind Warding~ 
+  SAY UNIDENTIFIED_DESC ~This class of open-face helmet, made of reinforced leather or metal, covers most of the head, save the face and neck.  These helmets commonly provide protection for the nose.  
+
+STATISTICS:
+
+Armor Class Bonus:  None
+Special:  Protects Against Critical Hits
+Weight: 2
+Not Usable By:
+Mage
+Bard
+Thief~ 
+  SAY DESC ~As its name suggests, the Helm of Mind Warding protects its wearer from any magical attempts at emotional manipulation. As a precaution, some high-profile mercenary groups regularly equip their members with such helmets to ensure that they can perform their prescribed duties without external interference.
+
+STATISTICS:
+
+Protects Against Critical Hits
+Wearer is immune to Mind Spells
+Can cast True Sight 3 times per day
+Weight: 4~ 
+
+COPY ~exnem\ITEM/XHLM003.ITM~ ~override/XHLM003.ITM~        
+  SAY NAME1 ~Helmet~ 
+  SAY NAME2 ~Merlin's Hat~ 
+  SAY UNIDENTIFIED_DESC ~This class of decorative helmet, made of reinforced leather or metal, covers the face and head. Eye slits and breathing holes come highly recommended.  
+
+STATISTICS:
+
+Armor Class Bonus:  None
+Special:  Protects Against Critical Hits
+Weight: 2
+Not Usable By:
+Mage
+Bard
+Thief~ 
+  SAY DESC ~This hat used to be worn by Merlin the Sorcerer in the times on Camelot.
+
+It lets the user learn several extra spells.
+
+STATISTICS:
+
+Armor Class Bonus: +1
+Special:
+Bonus spells for levels 3-7
+Special:  Protects Against Critical Hits
+Weight: 2
+Only Usable By:
+ Bards
+ Mages (Single, Multi and Duel)~ 
+
+COPY ~exnem\ITEM/XPOT001.ITM~ ~override/XPOT001.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Charisma~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will permanently add 1 points of charisma to the character, up to a maximum of 25.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XPOT002.ITM~ ~override/XPOT002.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Life~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will permanently add 2 hit points to the character.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XPOT003.ITM~ ~override/XPOT003.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Strength~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will permanently add 1 points of strength to the character, up to a maximum of 25.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XPOT004.ITM~ ~override/XPOT004.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Dexterity~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will permanently add 1 points of dexterity to the character, up to a maximum of 25.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XPOT005.ITM~ ~override/XPOT005.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Intelligence~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will permanently add 1 points of intelligence to the character, up to a maximum of 25.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XPOT006.ITM~ ~override/XPOT006.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Wisdom~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will permanently add 1 points of wisdom to the character, up to a maximum of 25.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XPOT007.ITM~ ~override/XPOT007.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Constitution~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will permanently add 1 points of constitution to the character, up to a maximum of 25.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XPOT008.ITM~ ~override/XPOT008.ITM~        
+  SAY NAME1 ~Potion~ 
+  SAY NAME2 ~Elixir of Health~ 
+  SAY UNIDENTIFIED_DESC ~Potions are typically found in ceramic, crystal, glass, or metal flasks or vials.  Flasks or other containers generally contain enough fluid to provide one person with one complete dose to achieve the effects of the potion.  ~ 
+  SAY DESC ~When consumed, this potion will restore the characters hit points completely. It will not however, cure any poison, disease or any other effect.~ 
+  SAY 0xde ~Gulp!~ 
+
+COPY ~exnem\ITEM/XRNG001.ITM~ ~override/XRNG001.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Ring of Etherea~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This ring renders the user ethereal, which makes him immune to non-magical weapons.
+It also gives the user a 50% Magic resistance.
+
+STATISTICS:
+
+Special: 50% Magic Resistance
+Immunity to non-magical weapons and normal missiles.~ 
+
+COPY ~exnem\ITEM/XRNG002.ITM~ ~override/XRNG002.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Narya~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This ring belonged to a great sorcerer called Gandalf. It is imbued with fire magic, giving the wearer fire resistance and fire power spells.
+
+STATISTICS:
+
+While Equipped: 85% Fire Resistance.
+-40% Cold Resistance.
+Wearer is rendered invisible.
+Can cast each of these spells twice a day:
+Smart Fireball
+Firaga~ 
+
+COPY ~exnem\ITEM/XRNG003.ITM~ ~override/XRNG003.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Ramuh's Soul~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This ring is said to be possessed by the spirit of the deity Ramuh. While equipped it will provide immunity to lightning and electricity and retaliate any creature that hits the wearer with a charge of thundaga.
+
+STATISTICS:
+
+Immunity to Electricity
+30% Chance to cast Thundaga when hit~ 
+
+COPY ~exnem\ITEM/XRNG004.ITM~ ~override/XRNG004.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Ring of Protection +6~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~While making the rings for the knights, Sauron produced several of these little yet powerful rings.
+They were only meant as practice and testing and were cast aside once the real ones were made.
+Rumors are there is another, more powerful version of this ring. Perhaps the ones given by Sauron to the knights?
+
+STATISTICS:
+
+Armor Class:  +6 bonus
+Saving Throws:  +6 bonus~ 
+
+COPY ~exnem\ITEM/XRNG005.ITM~ ~override/XRNG005.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Ring of Titanium~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This ring is part of the set of rings given to the knights by Sauron.
+Titanium rings encompass the wearer with an invisible shield made of pure magical titanium.
+This shield will give extra protection to the user against all sorts of weapons, magical and non-magical.
+
+STATISTICS:
+
+Armor Class Bonus:  +10
+Saving Throws Bonus:  +10
+THAC0 Bonus: +10~ 
+
+COPY ~exnem\ITEM/XRNG006.ITM~ ~override/XRNG006.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Topaz Ring of Tania~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This is one of the rings that belonged to the all-mighty Sorceress Tania.
+With it the casting speed is increased to almost instant.
+
+There are tales that say some of the other rings of Tania are scattered through the Sword Coast.
+
+STATISTICS:
+
+Instant spell casting~ 
+
+COPY ~exnem\ITEM/XRNG007.ITM~ ~override/XRNG007.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Diamond Ring of Tania~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This is one of the rings that belonged to the all-mighty Sorceress Tania.
+
+With it the wearer has increased resistance to elements.
+There are tales that say some of the other rings of Tania are scattered through the Sword Coast.
+
+STATISTICS:
+
+Increase Elemental Resistance:
+Fire 100
+Electricity 100
+Cold 100~ 
+
+COPY ~exnem\ITEM/XRNG008.ITM~ ~override/XRNG008.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Onyx Ring of Tania~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This is one of the rings that belonged to the all-mighty Sorceress Tania.
+
+This ring protects the user by inflicting fire damage to any foe that hits him.
+There are tales that say some of the other rings of Tania are scattered through the Sword Coast.
+
+STATISTICS:
+
+50% chance to cast Firaga when hit.~ 
+
+COPY ~exnem\ITEM/XRNG009.ITM~ ~override/XRNG009.ITM~        
+  SAY NAME1 ~Ring~ 
+  SAY NAME2 ~Ring of Terror~ 
+  SAY UNIDENTIFIED_DESC ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~ 
+  SAY DESC ~This ring gives the ability to transform into a horrifying being that will panic anyone who dares hit the wearer.
+
+STATISTICS:
+
+90% chance to cast Panic when hit.~ 
+
+COPY ~exnem\ITEM/XROB001.ITM~ ~override/XROB001.ITM~        
+  SAY NAME1 ~Mage Robe~ 
+  SAY NAME2 ~Adrianic Mantle~ 
+  SAY UNIDENTIFIED_DESC ~Due to the extremely volatile nature of most magics, Mage Robes  are not uncommon among young acolytes and their wizardly tutors. As with other such robes, they cannot be worn except by mages
+
+STATISTICS:
+
+Weight:  3
+Only usable by:
+Mage (single, dual, & multi-class)~ 
+  SAY DESC ~This magic robe was once owned by a powerful sorceress named Tania. Tania used 3 magic stones, a putrid leech and mithril to weave this robe. The 3 stones imbued the robe with protection against the elements, but this power has been drained over time and needs to be recharged with the proper stones. The Putrid Leech was used to give it special poison protections. The final component was mithril, which makes it so much harder to penetrate.
+
+STATISTICS:
+
+AC Bonus: 5
+Special:
+Immunity to Poison
+20% chance of infecting whoever hits the wearer with Bio.
+
+Only usable by:
+ Mage (single, dual, & multi-class)~ 
+
+COPY ~exnem\ITEM/XROB002.ITM~ ~override/XROB002.ITM~        
+  SAY NAME1 ~Mage Robe~ 
+  SAY NAME2 ~Zion Robe~ 
+  SAY UNIDENTIFIED_DESC ~Due to the extremely volatile nature of most magics, Mage Robes  are not uncommon among young acolytes and their wizardly tutors. As with other such robes, they cannot be worn except by mages
+
+STATISTICS:
+
+Weight:  3
+Only usable by:
+Mage (single, dual, & multi-class)~ 
+  SAY DESC ~Some centuries ago, there was a rebellion inside the darkest cults of the Illithids. Zion, a high priest, had suddenly begun to realize the wrong of their ways. Pretty abnormal for a race of beings so engulfed by their evilness.
+Zion decided to challenge his brethren and his own beliefs, and constructed this robe for doing so. But even though the robe was very powerful, he was easily outnumbered and... taken care of.
+
+STATISTICS:
+
+AC Bonus: 5
+Immunity to mind spells
+Cast Outburst Marvel twice per day
+
+Only usable by:
+ Mage (single, dual, & multi-class)~ 
+
+COPY ~exnem\ITEM/XROB003.ITM~ ~override/XROB003.ITM~        
+  SAY NAME1 ~Mage Robe~ 
+  SAY NAME2 ~Life Pulse Mantle~ 
+  SAY UNIDENTIFIED_DESC ~Due to the extremely volatile nature of most magics, Mage Robes  are not uncommon among young acolytes and their wizardly tutors. As with other such robes, they cannot be worn except by mages
+
+STATISTICS:
+
+Weight:  3
+Only usable by:
+Mage (single, dual, & multi-class)~ 
+  SAY DESC ~This robe is a masterpiece of craftsmanship. Not many robes have such delicate and detailed weaving.
+
+While wearing this robe, microscopic tubular-like cables attach to your skin, the robe then extracts life essence from the environment and passes it on to you.
+
+STATISTICS:
+
+AC Bonus: 3
+Life increased 30%
+Regenerate HP at 3/sec
+
+Only usable by:
+ Mage
+ Druid
+ Bard~ 
+
+COPY ~exnem\ITEM/XROB004.ITM~ ~override/XROB004.ITM~        
+  SAY NAME1 ~Mage Robe~ 
+  SAY NAME2 ~Warrior's Sanctuary~ 
+  SAY UNIDENTIFIED_DESC ~Due to the extremely volatile nature of most magics, Mage Robes  are not uncommon among young acolytes and their wizardly tutors. As with other such robes, they cannot be worn except by mages
+
+STATISTICS:
+
+Weight:  3
+Only usable by:
+Mage (single, dual, & multi-class)~ 
+  SAY DESC ~This robe was designed to let warrior-mages engage in close combats.
+This ability is one sought greatly by wizards all around the globe, as it does not hinder the ability to cast spells.
+
+STATISTICS:
+
+AC Bonus: 5
+THAC0 Bonus: 6
+Dexterity set to 25
+Strength set to 25
+Intelligence set to 25
+
+Only usable by:
+ Mage
+ Druid
+ Bard
+ Monk~ 
+
+COPY ~exnem\ITEM/XROB005.ITM~ ~override/XROB005.ITM~        
+  SAY NAME1 ~Mage Robe~ 
+  SAY NAME2 ~Death Tyrant's Skin~ 
+  SAY UNIDENTIFIED_DESC ~Due to the extremely volatile nature of most magics, Mage Robes  are not uncommon among young acolytes and their wizardly tutors. As with other such robes, they cannot be worn except by mages
+
+STATISTICS:
+
+Weight:  3
+Only usable by:
+Mage (single, dual, & multi-class)~ 
+  SAY DESC ~This robe was manufactured by Sigolari, an elder Druid. It is made from the skin of a giant beholder creature known as a death tyrant.
+This gross creatures are deadly, but this robe is actually very effective against their kin.
+
+STATISTICS:
+
+AC: -1
+AC Bonus: 6
+Protection from Petrify
+Protection from Evil
+Protection from death spells
+Cast Medusa’s Stare twice per day
+Cast Softness twice per day
+Cast Stone Heart once per day
+
+Only usable by:
+ Mage
+ Druid
+ Bard~ 
+
+COPY ~exnem\ITEM/XSTF001.ITM~ ~override/XSTF001.ITM~        
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~White Wind Staff~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~While equipping this staff, you can cast curaga 3 times a day.
+
+STATISTICS:
+
+AC: +2 bonus
+THAC0: +5 bonus
+Damage:  2D6 +3
+Damage type:  crushing
+Cast Curaga 3 times per day
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Quarterstaff
+Type:  2-handed
+Requires: 5 Strength
+Not Usable By:
+ Thief
+ Fighter
+ Mage~ 
+  SAY 0x2c6 ~Healed~ 
+
+COPY ~exnem\ITEM/XSTF002.ITM~ ~override/XSTF002.ITM~        
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~Staff of Ramuh~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~This staff has the power to gather energy from its environment and transform it into powerful lightning ray that strikes the target.
+
+STATISTICS:
+
+Damage: 1D6+5
+25% Chance to cast Thundaga when striking
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Quarterstaff
+Type:  2-handed
+Requires: 5 Strength
+Usable by:
+Mages~ 
+
+COPY ~exnem\ITEM/XSTF003.ITM~ ~override/XSTF003.ITM~        
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~Staff of Shiva~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~This staff has the power to gather energy from its environment and transform it into powerful blizzard that strikes the target.
+
+STATISTICS:
+
+Damage: 1D6+5
+25% Chance to cast Blizzaga when striking
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Quarterstaff
+Type:  2-handed
+Requires: 5 Strength
+Usable by:
+Mages~ 
+
+COPY ~exnem\ITEM/XSTF004.ITM~ ~override/XSTF004.ITM~        
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~Staff of Ifrit~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~This staff has the power to gather energy from its environment and transform it into powerful fire column that strikes the target.
+
+STATISTICS:
+
+Damage: 1D6+5
+25% Chance to cast Firaga when striking
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Quarterstaff
+Type:  2-handed
+Requires: 5 Strength
+Usable by:
+Mages~ 
+
+COPY ~exnem\ITEM/XSTF005.ITM~ ~override/XSTF005.ITM~        
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~Staff of Decay~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~This staff has the power to gather energy from its environment and transform it into a powerful disease that strikes the target.
+
+STATISTICS:
+
+Damage: 1D6+5
+25% Chance to cast Bio when striking
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Quarterstaff
+Type:  2-handed
+Requires: 5 Strength
+Usable by:
+Mages~ 
+
+COPY ~exnem\ITEM/XSTF006.ITM~ ~override/XSTF006.ITM~        
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~Staff of Elemental Chaos~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~None who have witnessed the power of this staff can easily forget. Owned by Loki, prince of Chaos for many, many ages, this peculiar staff casts upon a single target a devastating storm of elements, consisting of fire, cold, electricity and matter putrefaction.
+
+STATISTICS:
+
+Damage: 1D6+4
+20% Chance to cast Elemental Rain when striking
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Quarterstaff
+Type:  2-handed
+Requires: 5 Strength
+Usable by:
+Mages~ 
+
+COPY ~exnem\ITEM/XSTF007.ITM~ ~override/XSTF007.ITM~        
+  SAY NAME1 ~Quarterstaff~ 
+  SAY NAME2 ~Staff of Phoenix Down~ 
+  SAY UNIDENTIFIED_DESC ~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~ 
+  SAY DESC ~This staff is usually only wielded by priests and clerics of the highest ranks.
+This particular one was owned by Lady Miir, High Priestess of the Order of Heavens.
+
+Besides having a quite high damage level for a staff it bears the power to raise from the dead any slain party members.
+
+STATISTICS:
+
+Damage: 2D8+5
+25% Chance to cast Firaga when striking
+Cast Phoenix Down once per day
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Quarterstaff
+Type:  2-handed
+Requires: 5 Strength
+Usable by:
+ Cleric
+ Druid~ 
+
+COPY ~exnem\ITEM/XSWD001.ITM~ ~override/XSWD001.ITM~        
+  SAY NAME1 ~Two Handed Sword~ 
+  SAY NAME2 ~Excalibur~ 
+  SAY UNIDENTIFIED_DESC ~The two-handed sword is a derivative of the long sword.  Weaponsmiths have always looked for ways to improve existing weapons.  In an effort to improve the long sword, the blade was lengthened.  Eventually, the handle had to be extended and two hands became necessary to properly swing the sword.  The primary function of two-handed swords is cleaving mounted knights and breaking up pike formations. 
+
+STATISTICS:
+
+Damage:  1D10
+Damage type:  slashing
+Weight: 15
+Speed Factor: 10
+Proficiency Type: Two Handed sword
+Type:  2-handed
+Requires: 14 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage 
+ Thief~ 
+  SAY DESC ~Given to Arthur by the Lady in the Lake in return for a favor to be named later, Excalibur is the magical sword which gave Arthur the power to unite the kingdoms of Britain. Its origins are as misty as the location of Avalon, but it is clear that the weapon was forged by some supernatural being in order to assist worthy kings in defending Britain. Excalibur is a sword of sharpness +5 that can only be wielded by a Good warrior of 18 strength or greater. 
+
+Damage: 5d8 +5
+Type: slashing
+Speed Factor: 2
+Proficiency: two-handed sword
+Special: 10% chance of death of target with a save vs. death at -4.
+Useable: 
+ Good fighters, rangers and paladins with a minimum of 18 strength.~ 
+  SAY 0x10e ~Vorpal Hit~ 
+
+COPY ~exnem\ITEM/XSWD002.ITM~ ~override/XSWD002.ITM~        
+  SAY NAME1 ~Two Handed Sword~ 
+  SAY NAME2 ~Doom Bringer~ 
+  SAY UNIDENTIFIED_DESC ~The two-handed sword is a derivative of the long sword.  Weaponsmiths have always looked for ways to improve existing weapons.  In an effort to improve the long sword, the blade was lengthened.  Eventually, the handle had to be extended and two hands became necessary to properly swing the sword.  The primary function of two-handed swords is cleaving mounted knights and breaking up pike formations. 
+
+STATISTICS:
+
+Damage:  1D10
+Damage type:  slashing
+Weight: 15
+Speed Factor: 10
+Proficiency Type: Two Handed sword
+Type:  2-handed
+Requires: 14 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage 
+ Thief~ 
+  SAY DESC ~Doom Bringer is a very fearful sword. Not many who have crossed paths with it have lived to tell the tale. Its origin is uncertain, as are its powers, but one thing is certain, it's a killer. Legend tells that Sauron once killed 5 dragons at once, equipped only with this sword.
+
+STATISTICS:
+
+Damage:  4D12+4
+THACO Bonus:  4
+Damage type:  slashing
+Special:  Upon each successful hit the sword does 2 damage in Fire, Cold, Poison, Electrical and Magic damage.
+-1 To Dexterity While Equipped.
+-1 To Charisma While Equipped
+Strength Is Set To 25 While Equipped
+Weight: 25
+Speed Factor: 6
+Proficiency Type: Two Handed sword
+Type:  2-handed
+Requires: 14 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage 
+ Thief~ 
+
+COPY ~exnem\ITEM/XSWD003.ITM~ ~override/XSWD003.ITM~        
+  SAY NAME1 ~Long Sword~ 
+  SAY NAME2 ~Bitter Blade~ 
+  SAY UNIDENTIFIED_DESC ~These swords are usually referred to as doubled-edged swords, war swords, or military swords.  In many cases, the long sword has a single-edged blade. There is no single version of the long sword; the design and length vary from culture to culture, and may vary within the same culture depending on the era.  Among the most common characteristics of all long swords is their length, which ranges from 35 inches to 47 inches.  In the latter case, the blade is known to take up 40 inches of the total length.  Most long swords have a double-edged blade and a sharp point at the tip.  Despite the tip, the long sword is designed for slashing, not thrusting. 
+
+STATISTICS:
+
+Damage:  1D8
+Damage type:  slashing
+Weight: 4
+Speed Factor: 5
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 6 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage~ 
+  SAY DESC ~This sword is made with a poisoned blade someone found in some swamp.
+The wielder is able to poison and disease any foe struck by this sword.
+
+STATISTICS:
+
+Damage:  1D8+4 
+Damage type:  piercing
+Affect target with Poison and Disease
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage ~ 
+
+COPY ~exnem\ITEM/XSWD004.ITM~ ~override/XSWD004.ITM~        
+  SAY NAME1 ~Short Sword~ 
+  SAY NAME2 ~The Calcinator~ 
+  SAY UNIDENTIFIED_DESC ~The short sword is the first type of sword to come into existence.  In the simplest of terms, a short sword can be considered a dagger with a blade so long that it can no longer be called a dagger.  The term short sword does not exist in sword classifications.  However, it has come to be used to describe a double-edged blade about two feet in length.  The sword tip is usually pointed, ideal for thrusting.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  piercing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Short Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage ~ 
+  SAY DESC ~This sword was made thousands of years ago, enough time to spawn all kinds of myths and legends about its origins.
+Some say Ifrit made it. Others say it was Bhaal who had this forged. Yet others, claim it was a humble and skilled smith outside of Amn.
+
+Though non of this is certain, one thing remains true...
+... this sword is magnificent and its power is unquestionable.
+
+This sword has the ability to make anyone struck with it burn in a blazing flame.
+
+STATISTICS:
+
+Damage:  1D6+4
+THAC0 Bonus: 2
+20% chance to cast Firaga upon striking
+20% chance to terrify the target when struck.
+Damage type:  piercing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Short Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage~ 
+
+COPY ~exnem\ITEM/XSWD005.ITM~ ~override/XSWD005.ITM~        
+  SAY NAME1 ~Long Sword~ 
+  SAY NAME2 ~The Sword of Zeus~ 
+  SAY UNIDENTIFIED_DESC ~These swords are usually referred to as doubled-edged swords, war swords, or military swords.  In many cases, the long sword has a single-edged blade. There is no single version of the long sword; the design and length vary from culture to culture, and may vary within the same culture depending on the era.  Among the most common characteristics of all long swords is their length, which ranges from 35 inches to 47 inches.  In the latter case, the blade is known to take up 40 inches of the total length.  Most long swords have a double-edged blade and a sharp point at the tip.  Despite the tip, the long sword is designed for slashing, not thrusting. 
+
+STATISTICS:
+
+Damage:  1D8
+Damage type:  slashing
+Weight: 4
+Speed Factor: 5
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 6 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage~ 
+  SAY DESC ~This sword was stolen from Zeus's Cloud Palace by a thief called Sid Garnet. He possessed it for many years, though he never found its secret powers. One day he got tired of it, and sold it for a good 500 gold.
+
+This sword has the ability to make anyone hit with it be struck by lightning.
+
+STATISTICS:
+
+Damage:  1D6+4
+THAC0 Bonus: 2
+20% chance to cast Thundaga upon striking
+20% chance to stun the target when striking.
+Damage type:  piercing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage ~ 
+
+COPY ~exnem\ITEM/XSWD006.ITM~ ~override/XSWD006.ITM~        
+  SAY NAME1 ~Long Sword~ 
+  SAY NAME2 ~Epidemic Sword~ 
+  SAY UNIDENTIFIED_DESC ~These swords are usually referred to as doubled-edged swords, war swords, or military swords.  In many cases, the long sword has a single-edged blade. There is no single version of the long sword; the design and length vary from culture to culture, and may vary within the same culture depending on the era.  Among the most common characteristics of all long swords is their length, which ranges from 35 inches to 47 inches.  In the latter case, the blade is known to take up 40 inches of the total length.  Most long swords have a double-edged blade and a sharp point at the tip.  Despite the tip, the long sword is designed for slashing, not thrusting. 
+
+STATISTICS:
+
+Damage:  1D8
+Damage type:  slashing
+Weight: 4
+Speed Factor: 5
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 6 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage~ 
+  SAY DESC ~The history behind this blade is quite bizarre.
+
+It was found by kid in some sewers near his house. He took it home with him, and within a day or two, all his family, him included,  had become sick and diseased. One day later they were all found dead. The blade was also found and taken to be studied by scholars from the area. Soon enough, they also fell sick and died. This tale went on for some decades. The sword spreading its poison wherever it was taken.
+One day, finally, a wise alchemist was able to concentrate that virus, and gave the sword a way to release this poison, aimed at one target, at the wielder's will.
+
+STATISTICS:
+
+Damage:  1D6+4
+THAC0 Bonus: 2
+20% chance to cast Bio upon striking
+20% chance to absorb 10 hp from the target when struck.
+Damage type:  piercing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage~ 
+
+COPY ~exnem\ITEM/XSWD007.ITM~ ~override/XSWD007.ITM~        
+  SAY NAME1 ~Long Sword~ 
+  SAY NAME2 ~The Iceberg~ 
+  SAY UNIDENTIFIED_DESC ~These swords are usually referred to as doubled-edged swords, war swords, or military swords.  In many cases, the long sword has a single-edged blade. There is no single version of the long sword; the design and length vary from culture to culture, and may vary within the same culture depending on the era.  Among the most common characteristics of all long swords is their length, which ranges from 35 inches to 47 inches.  In the latter case, the blade is known to take up 40 inches of the total length.  Most long swords have a double-edged blade and a sharp point at the tip.  Despite the tip, the long sword is designed for slashing, not thrusting. 
+
+STATISTICS:
+
+Damage:  1D8
+Damage type:  slashing
+Weight: 4
+Speed Factor: 5
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 6 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage~ 
+  SAY DESC ~Someone once said, "Simplicity is perfection".
+This could be true when applied to this sword.
+A piece of magic iceberg and a grip.
+
+STATISTICS:
+
+Damage:  1D6+4
+THAC0 Bonus: 2
+20% chance to cast Blizzaga upon striking
+20% chance to slow the target when struck.
+Damage type:  piercing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Long Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage~ 
+
+COPY ~exnem\ITEM/XSWD008.ITM~ ~override/XSWD008.ITM~        
+  SAY NAME1 ~Short Sword~ 
+  SAY NAME2 ~Ultima~ 
+  SAY UNIDENTIFIED_DESC ~The short sword is the first type of sword to come into existence.  In the simplest of terms, a short sword can be considered a dagger with a blade so long that it can no longer be called a dagger.  The term short sword does not exist in sword classifications.  However, it has come to be used to describe a double-edged blade about two feet in length.  The sword tip is usually pointed, ideal for thrusting.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  piercing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Short Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage ~ 
+  SAY DESC ~Ultima... the legendary sword.
+You had begun to believe it was all myth.
+How lucky to have stumbled upon this mighty piece of magical perfection.
+This sword has the power to strike its target with an elemental rain that will be most devastating for any creature.
+
+STATISTICS:
+
+Damage:  3D9+5
+THAC0 Bonus: 10
+20% chance to cast Elemental Rain when striking
+Damage type:  piercing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Short Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage~ 
+
+COPY ~exnem\ITEM/XSWD009.ITM~ ~override/XSWD009.ITM~        
+  SAY NAME1 ~Short Sword~ 
+  SAY NAME2 ~Rabid Bite~ 
+  SAY UNIDENTIFIED_DESC ~The short sword is the first type of sword to come into existence.  In the simplest of terms, a short sword can be considered a dagger with a blade so long that it can no longer be called a dagger.  The term short sword does not exist in sword classifications.  However, it has come to be used to describe a double-edged blade about two feet in length.  The sword tip is usually pointed, ideal for thrusting.  
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  piercing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Short Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage ~ 
+  SAY DESC ~This Cleaver will make creatures struck with it, to enter in a mental frenzy.
+
+STATISTICS:
+
+Damage:  2D6+4
+THAC0 Bonus: 3
+50% chance to cast Berserk when striking
+50% chance to cast Panic when striking
+Damage type:  piercing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Short Sword
+Type:  1-handed
+Requires: 5 Strength
+Not Usable By:
+ Druid
+ Cleric 
+ Mage~ 
+
+//////////////////////////
+// Creatures to compile //
+//////////////////////////
+
+COPY ~exnem\CRE\New/XSVAMP.cre~ ~override/XSVAMP.cre~         
+COPY ~exnem\CRE\New/Xsvampm.cre~ ~override/Xsvampm.cre~        
+COPY ~exnem\CRE\New/Xnem.CRE~ ~override/Xnem.CRE~           
+  SAY NAME1 ~<CHARNAME>~ 
+COPY ~exnem\CRE\New/XSZOMB1.cre~ ~override/XSZOMB1.cre~        
+COPY ~exnem\CRE\New/Xsbehold.cre~ ~override/Xsbehold.cre~       
+  SAY NAME1 ~Death Tyrant~ 
+COPY ~exnem\CRE\New/Xsbodhi.cre~ ~override/Xsbodhi.cre~        
+COPY ~exnem\CRE\New/XSCARR1.cre~ ~override/XSCARR1.cre~        
+COPY ~exnem\CRE\New/XSDEMI.cre~ ~override/XSDEMI.cre~         
+  SAY NAME1 ~Demi-Lich~ 
+COPY ~exnem\CRE\New/Xsdemon.cre~ ~override/Xsdemon.cre~        
+COPY ~exnem\CRE\New/XSFIRGI.cre~ ~override/XSFIRGI.cre~        
+  SAY NAME1 ~<CHARNAME>~ 
+COPY ~exnem\CRE\New/XSGOLEM1.cre~ ~override/XSGOLEM1.cre~       
+COPY ~exnem\CRE\New/XSGOLEM2.cre~ ~override/XSGOLEM2.cre~       
+COPY ~exnem\CRE\New/XSMINDF.cre~ ~override/XSMINDF.cre~        
+COPY ~exnem\CRE\New/Xsmindv.cre~ ~override/Xsmindv.cre~        
+
+
+/////////////////////////
+//    2DAs to append   //
+/////////////////////////
+
+APPEND ~RNDMAGIC.2DA~
+~LOW_1  SCRXX16  XPOT002  XPOT008  SCRXX01 SCRXX06 SCRXX07 SCRXX10 SCRXX11 SCRXX12 XPOT008  SCRXX10  SCRXX11  SCRXX12  XPOT008  SCRXX10  SCRXX11  SCRXX12   XPOT008  XPOT002
+LOW_2  XPOT001  SCRXX16  XPOT003  SCRXX01 XPOT005 SCRXX01 XPOT007 SCRXX10 SCRXX11 SCRXX12  SCRXX13  SCRXX14  SCRXX15  SCRXX16  SCRXX02  SCRXX17  SCRXX06   SCRXX07  XPOT008
+LOW_3  XPOT002  SCRXX16  XPOT004  SCRXX01 XPOT006 SCRXX08 XPOT008 SCRXX10 SCRXX11 SCRXX12  SCRXX21  SCRXX22  SCRXX26  SCRXX11  XRNG004  SCRXX10  SCRXX12   SCRXX01  XPOT008
+MED_1  SCRXX01  SCRXX02  SCRXX04  SCRXX05 SCRXX18 SCRXX13 SCRXX14 SCRXX15 SCRXX16 SCRXX17  SCRXX21  SCRXX22  SCRXX01  SCRXX19  SCRXX20  SCRXX12  SCRXX25   XPOT002  XPOT002
+MED_2  SCRXX26  SCRXX22  SCRXX21  SCRXX17 SCRXX16 SCRXX15 SCRXX14 SCRXX13 SCRXX12 SCRXX11  SCRXX10  SCRXX08  SCRXX07  SCRXX06  SCRXX02  SCRXX01  XPOT002   XPOT002  XPOT008
+MED_3  XPOT001  SCRXX02  XPOT002  SCRXX06 XPOT003 SCRXX07 XPOT004 SCRXX08 XPOT005 SCRXX15  XPOT006  SCRXX21  XPOT007  SCRXX22  XPOT008  SCRXX23  SCRXX24   SCRXX25  SCRXX26
+HI     SCRXX03  XPOT001  SCRXX08  XPOT002 SCRXX23 XPOT003 SCRXX24 XPOT004 SCRXX04 XPOT005  SCRXX05  XPOT006  SCRXX18  XPOT007  SCRXX19  XPOT008  SCRXX20   SCRXX27  XRNG005~
+UNLESS ~LOW_1~
+
+APPEND ~RNDSCROL.2DA~
+~4th   SCRXX01 SCRXX02 SCRXX03 SCRXX04 SCRXX05 SCRXX06 SCRXX07 SCRXX08 SCRXX09 SCRXX10 SCRXX11 SCRXX12 SCRXX13 SCRXX14 SCRXX15 SCRXX16 SCRXX17 SCRXX18 SCRXX19 SCRXX20
+5th   SCRXX21 SCRXX22 SCRXX23 SCRXX24 SCRXX25 SCRXX26 SCRXX27 SCRXX04 SCRXX05 SCRXX18 SCRXX19 SCRXX20 SCRXX27 SCRXX01 SCRXX06 SCRXX07 SCRXX15 SCRXX16 SCRXX21 SCRXX26~
+UNLESS ~4th~
+
+ACTION_IF FILE_EXISTS ~data/ctbitm.bif~
+THEN BEGIN
+  COPY ~EXNEM\RNDTREAS.CTB~ ~OVERRIDE\RNDTREAS.2DA~
+END
+
+ACTION_IF NOT FILE_EXISTS ~data/ctbitm.bif~
+THEN BEGIN
+  COPY ~EXNEM\RNDTREAS.2DA~ ~OVERRIDE\RNDTREAS.2DA~
+END
+
+///
+///  Add items to creatures in game
+///
+
+BEGIN ~Add items to creatures~
+
+COPY_EXISTING ~beast.cre~ ~override/beast.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behdir01.cre~ ~override/behdir01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~beheld01.cre~ ~override/beheld01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behgas01.cre~ ~override/behgas01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behgau01.cre~ ~override/behgau01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behhiv01.cre~ ~override/behhiv01.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behobs01.cre~ ~override/behobs01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behold01.cre~ ~override/behold01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behspe01.cre~ ~override/behspe01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~behund01.cre~ ~override/behund01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~bheye.cre~ ~override/bheye.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~bodhi.cre~ ~override/bodhi.cre~
+  ADD_CRE_ITEM ~STAFX0~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~bodhi2.cre~ ~override/bodhi2.cre~
+  ADD_CRE_ITEM ~STAFX0~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~bodhiamb.cre~ ~override/bodhiamb.cre~
+  ADD_CRE_ITEM ~STAFX0~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~c6bodhi.cre~ ~override/c6bodhi.cre~
+  ADD_CRE_ITEM ~STAFX0~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~cambion1.cre~ ~override/cambion1.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~cambion2.cre~ ~override/cambion2.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~cubodhi.cre~ ~override/cubodhi.cre~
+  ADD_CRE_ITEM ~STAFX0~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~demilich.cre~ ~override/demilich.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+COPY_EXISTING ~demlord.cre~ ~override/demlord.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~demogor2.cre~ ~override/demogor2.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~dragblac.cre~ ~override/dragblac.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV7~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV8~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV9~
+COPY_EXISTING ~dragblue.cre~ ~override/dragblue.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~dragbrow.cre~ ~override/dragbrow.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~dragpurp.cre~ ~override/dragpurp.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~dragred.cre~ ~override/dragred.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~dragshad.cre~ ~override/dragshad.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~dragsilv.cre~ ~override/dragsilv.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~dragyell.cre~ ~override/dragyell.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~drow01.cre~ ~override/drow01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~drow02.cre~ ~override/drow02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~drow03.cre~ ~override/drow03.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~drow04.cre~ ~override/drow04.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~drow05.cre~ ~override/drow05.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~drow06.cre~ ~override/drow06.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~drow07.cre~ ~override/drow07.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~firkra02.cre~ ~override/firkra02.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+  ADD_CRE_ITEM ~XARM001~ #0 #0 #0 ~UNSTEALABLE~ ~INV4~
+COPY_EXISTING ~gall.cre~ ~override/gall.cre~
+  ADD_CRE_ITEM ~XBTS001~ #0 #0 #0 ~UNSTEALABLE~ ~BOOTS~
+COPY_EXISTING ~gaius.cre~ ~override/gaius.cre~
+  ADD_CRE_ITEM ~XCLK001~ #0 #0 #0 ~UNSTEALABLE~ ~CLOAK~
+COPY_EXISTING ~goliro01.cre~ ~override/goliro01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~goljug01.cre~ ~override/goljug01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~golkill2.cre~ ~override/golkill2.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~guard1.cre~ ~override/guard1.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~guard2.cre~ ~override/guard2.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~guard3.cre~ ~override/guard3.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~hobarc01.cre~ ~override/hobarc01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~hobarc02.cre~ ~override/hobarc02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~hobcap01.cre~ ~override/hobcap01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~hobeli01.cre~ ~override/hobeli01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kobald01.cre~ ~override/kobald01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kobarc01.cre~ ~override/kobarc01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kobcap01.cre~ ~override/kobcap01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kobsha01.cre~ ~override/kobsha01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuoarc20.cre~ ~override/kuoarc20.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuocap01.cre~ ~override/kuocap01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuocle20.cre~ ~override/kuocle20.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+COPY_EXISTING ~kuolie01.cre~ ~override/kuolie01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuomag01.cre~ ~override/kuomag01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuomon01.cre~ ~override/kuomon01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuopri01.cre~ ~override/kuopri01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuotoa01.cre~ ~override/kuotoa01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuowar01.cre~ ~override/kuowar01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuowar20.cre~ ~override/kuowar20.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~kuowhi01.cre~ ~override/kuowhi01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mekrat.cre~ ~override/mekrat.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV3~
+COPY_EXISTING ~mimic01.cre~ ~override/mimic01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mindal01.cre~ ~override/mindal01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mindfl01.cre~ ~override/mindfl01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mindul01.cre~ ~override/mindul01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mindva01.cre~ ~override/mindva01.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mindvam.cre~ ~override/mindvam.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mistcd01.cre~ ~override/mistcd01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mistho01.cre~ ~override/mistho01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mistpo01.cre~ ~override/mistpo01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mistva01.cre~ ~override/mistva01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mistwa01.cre~ ~override/mistwa01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~monk.cre~ ~override/monk.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~NONE~ ~INV1~
+COPY_EXISTING ~mumgre01.cre~ ~override/mumgre01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mummy.cre~ ~override/mummy.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~mummy01.cre~ ~override/mummy01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~oghmonk1.cre~ ~override/oghmonk1.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~ogre01.cre~ ~override/ogre01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~ogrelesu.cre~ ~override/ogrelesu.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~ogrema01.cre~ ~override/ogrema01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~ogresu.cre~ ~override/ogresu.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~ogrhal01.cre~ ~override/ogrhal01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~ogrill01.cre~ ~override/ogrill01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~ogrmag01.cre~ ~override/ogrmag01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~orc01.cre~ ~override/orc01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~orc02.cre~ ~override/orc02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~orc03.cre~ ~override/orc03.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~orc04.cre~ ~override/orc04.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~orc05.cre~ ~override/orc05.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~orc06.cre~ ~override/orc06.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~rock.cre~ ~override/rock.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~samia.cre~ ~override/samia.cre~
+  ADD_CRE_ITEM ~XARM003~ #0 #0 #0 ~UNSTEALABLE~ ~ARMOR~
+  ADD_CRE_ITEM ~XSWD009~ #0 #0 #0 ~UNSTEALABLE~ ~WEAPON1~ EQUIP
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SEWDUE01.cre~ ~override/SEWDUE01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SEWDUE02.cre~ ~override/SEWDUE02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SEWRAK01.cre~ ~override/SEWRAK01.cre~
+  ADD_CRE_ITEM ~XHLM002~ #0 #0 #0 ~UNSTEALABLE~ ~HELMET~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV2~
+COPY_EXISTING ~shadra01.cre~ ~override/shadra01.cre~
+  ADD_CRE_ITEM ~SCRXX01~ #0 #0 #0 ~UNSTEALABLE~ ~INV6~
+  ADD_CRE_ITEM ~SCRXX04~ #0 #0 #0 ~UNSTEALABLE~ ~INV7~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV8~
+  ADD_CRE_ITEM ~SCRXX20~ #0 #0 #0 ~UNSTEALABLE~ ~INV9~
+  ADD_CRE_ITEM ~SCRXX05~ #0 #0 #0 ~UNSTEALABLE~ ~INV10~
+COPY_EXISTING ~SKELAR01.cre~ ~override/SKELAR01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SKELAR02.cre~ ~override/SKELAR02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SKELET01.cre~ ~override/SKELET01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SKELWA01.cre~ ~override/SKELWA01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SKELWA02.cre~ ~override/SKELWA02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SKELWA03.cre~ ~override/SKELWA03.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~SKELWA.cre~ ~override/SKELWA.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLDE01.cre~ ~override/TROLDE01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLDE02.cre~ ~override/TROLDE02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLFR01.cre~ ~override/TROLFR01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLFR02.cre~ ~override/TROLFR02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLGI01.cre~ ~override/TROLGI01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLGI02.cre~ ~override/TROLGI02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLIC01.cre~ ~override/TROLIC01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLIC02.cre~ ~override/TROLIC02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLIC03.cre~ ~override/TROLIC03.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLIC04.cre~ ~override/TROLIC04.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLL01.cre~ ~override/TROLL01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLL02.cre~ ~override/TROLL02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLL03.cre~ ~override/TROLL03.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLSI01.cre~ ~override/TROLSI01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~TROLSI02.cre~ ~override/TROLSI02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~UMBHUL01.cre~ ~override/UMBHUL01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~UMBHUL02.cre~ ~override/UMBHUL02.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~UNSEE.cre~ ~override/UNSEE.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMANC01.cre~ ~override/VAMANC01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMEMI01.cre~ ~override/VAMEMI01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMFLF01.cre~ ~override/VAMFLF01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMFLM01.cre~ ~override/VAMFLM01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMMAT01.cre~ ~override/VAMMAT01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMOLD01.cre~ ~override/VAMOLD01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMPAMB.cre~ ~override/VAMPAMB.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMPAT01.cre~ ~override/VAMPAT01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMPBAT.cre~ ~override/VAMPBAT.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMPIF01.cre~ ~override/VAMPIF01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMPIM01.cre~ ~override/VAMPIM01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~VAMVER01.cre~ ~override/VAMVER01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WEREGR01.cre~ ~override/WEREGR01.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WEREGRDR.cre~ ~override/WEREGRDR.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WEREWO01.cre~ ~override/WEREWO01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WEREWODR.cre~ ~override/WEREWODR.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WEREWYV1.cre~ ~override/WEREWYV1.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WEREWYV2.cre~ ~override/WEREWYV2.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WRAITH01.cre~ ~override/WRAITH01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WYVERN01.cre~ ~override/WYVERN01.cre~
+  ADD_CRE_ITEM ~RNDTRE04~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+COPY_EXISTING ~WYVGRE01.cre~ ~override/WYVGRE01.cre~
+  ADD_CRE_ITEM ~RNDTRE05~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
+
+///
+///  Add items to areas in game
+///
+
+BEGIN ~Add items to areas (affects SOA areas only - not BGT, TDD, CtB, etc. areas)~
+
+EXTEND_BOTTOM ~AR0201.BCS~ ~Exnem\BAF\AR0201.BAF~
+EXTEND_BOTTOM ~AR0202.BCS~ ~Exnem\BAF\AR0202.BAF~
+EXTEND_BOTTOM ~AR0205.BCS~ ~Exnem\BAF\AR0205.BAF~
+EXTEND_BOTTOM ~AR0300.BCS~ ~Exnem\BAF\AR0300.BAF~
+EXTEND_BOTTOM ~AR0305.BCS~ ~Exnem\BAF\AR0305.BAF~
+EXTEND_BOTTOM ~AR0306.BCS~ ~Exnem\BAF\AR0306.BAF~
+EXTEND_BOTTOM ~AR0307.BCS~ ~Exnem\BAF\AR0307.BAF~
+EXTEND_BOTTOM ~AR0308.BCS~ ~Exnem\BAF\AR0308.BAF~
+EXTEND_BOTTOM ~AR0309.BCS~ ~Exnem\BAF\AR0309.BAF~
+EXTEND_BOTTOM ~AR0310.BCS~ ~Exnem\BAF\AR0310.BAF~
+EXTEND_BOTTOM ~AR0330.BCS~ ~Exnem\BAF\AR0330.BAF~
+EXTEND_BOTTOM ~AR0400.BCS~ ~Exnem\BAF\AR0400.BAF~
+EXTEND_BOTTOM ~AR0401.BCS~ ~Exnem\BAF\AR0401.BAF~
+EXTEND_BOTTOM ~AR0404.BCS~ ~Exnem\BAF\AR0404.BAF~
+EXTEND_BOTTOM ~AR0405.BCS~ ~Exnem\BAF\AR0405.BAF~
+EXTEND_BOTTOM ~AR0406.BCS~ ~Exnem\BAF\AR0406.BAF~
+EXTEND_BOTTOM ~AR0409.BCS~ ~Exnem\BAF\AR0409.BAF~
+EXTEND_BOTTOM ~AR0411.BCS~ ~Exnem\BAF\AR0411.BAF~
+EXTEND_BOTTOM ~AR0418.BCS~ ~Exnem\BAF\AR0418.BAF~
+EXTEND_BOTTOM ~AR0419.BCS~ ~Exnem\BAF\AR0419.BAF~
+EXTEND_BOTTOM ~AR0500.BCS~ ~Exnem\BAF\AR0500.BAF~
+EXTEND_BOTTOM ~AR0503.BCS~ ~Exnem\BAF\AR0503.BAF~
+EXTEND_BOTTOM ~AR0504.BCS~ ~Exnem\BAF\AR0504.BAF~
+EXTEND_BOTTOM ~AR0505.BCS~ ~Exnem\BAF\AR0505.BAF~
+EXTEND_BOTTOM ~AR0602.BCS~ ~Exnem\BAF\AR0602.BAF~
+EXTEND_BOTTOM ~AR0603.BCS~ ~Exnem\BAF\AR0603.BAF~
+EXTEND_BOTTOM ~AR0700.BCS~ ~Exnem\BAF\AR0700.BAF~
+EXTEND_BOTTOM ~AR0705.BCS~ ~Exnem\BAF\AR0705.BAF~
+EXTEND_BOTTOM ~AR0708.BCS~ ~Exnem\BAF\AR0708.BAF~
+EXTEND_BOTTOM ~AR0710.BCS~ ~Exnem\BAF\AR0710.BAF~
+EXTEND_BOTTOM ~AR0711.BCS~ ~Exnem\BAF\AR0711.BAF~
+EXTEND_BOTTOM ~AR0801.BCS~ ~Exnem\BAF\AR0801.BAF~
+EXTEND_BOTTOM ~AR0802.BCS~ ~Exnem\BAF\AR0802.BAF~
+EXTEND_BOTTOM ~AR0803.BCS~ ~Exnem\BAF\AR0803.BAF~
+EXTEND_BOTTOM ~AR0804.BCS~ ~Exnem\BAF\AR0804.BAF~
+EXTEND_BOTTOM ~AR0805.BCS~ ~Exnem\BAF\AR0805.BAF~
+EXTEND_BOTTOM ~AR0806.BCS~ ~Exnem\BAF\AR0806.BAF~
+EXTEND_BOTTOM ~AR0807.BCS~ ~Exnem\BAF\AR0807.BAF~
+EXTEND_BOTTOM ~AR0811.BCS~ ~Exnem\BAF\AR0811.BAF~
+EXTEND_BOTTOM ~AR0902.BCS~ ~Exnem\BAF\AR0902.BAF~
+EXTEND_BOTTOM ~AR0903.BCS~ ~Exnem\BAF\AR0903.BAF~
+EXTEND_BOTTOM ~AR1001.BCS~ ~Exnem\BAF\AR1001.BAF~
+EXTEND_BOTTOM ~AR1003.BCS~ ~Exnem\BAF\AR1003.BAF~
+EXTEND_BOTTOM ~AR1007.BCS~ ~Exnem\BAF\AR1007.BAF~
+EXTEND_BOTTOM ~AR1101.BCS~ ~Exnem\BAF\AR1101.BAF~
+EXTEND_BOTTOM ~AR1102.BCS~ ~Exnem\BAF\AR1102.BAF~
+EXTEND_BOTTOM ~AR1103.BCS~ ~Exnem\BAF\AR1103.BAF~
+EXTEND_BOTTOM ~AR1105.BCS~ ~Exnem\BAF\AR1105.BAF~
+EXTEND_BOTTOM ~AR1201.BCS~ ~Exnem\BAF\AR1201.BAF~
+EXTEND_BOTTOM ~AR1202.BCS~ ~Exnem\BAF\AR1202.BAF~
+EXTEND_BOTTOM ~AR1301.BCS~ ~Exnem\BAF\AR1301.BAF~
+EXTEND_BOTTOM ~AR1302.BCS~ ~Exnem\BAF\AR1302.BAF~
+EXTEND_BOTTOM ~AR1303.BCS~ ~Exnem\BAF\AR1303.BAF~
+EXTEND_BOTTOM ~AR1401.BCS~ ~Exnem\BAF\AR1401.BAF~
+EXTEND_BOTTOM ~AR1404.BCS~ ~Exnem\BAF\AR1404.BAF~
+EXTEND_BOTTOM ~AR1512.BCS~ ~Exnem\BAF\AR1512.BAF~
+EXTEND_BOTTOM ~AR1513.BCS~ ~Exnem\BAF\AR1513.BAF~
+EXTEND_BOTTOM ~AR1514.BCS~ ~Exnem\BAF\AR1514.BAF~
+EXTEND_BOTTOM ~AR1600.BCS~ ~Exnem\BAF\AR1600.BAF~
+EXTEND_BOTTOM ~AR1605.BCS~ ~Exnem\BAF\AR1605.BAF~
+EXTEND_BOTTOM ~AR1902.BCS~ ~Exnem\BAF\AR1902.BAF~
+EXTEND_BOTTOM ~AR1904.BCS~ ~Exnem\BAF\AR1904.BAF~
+EXTEND_BOTTOM ~AR1905.BCS~ ~Exnem\BAF\AR1905.BAF~
+EXTEND_BOTTOM ~AR2000.BCS~ ~Exnem\BAF\AR2000.BAF~
+EXTEND_BOTTOM ~AR2009.BCS~ ~Exnem\BAF\AR2009.BAF~
+EXTEND_BOTTOM ~AR2100.BCS~ ~Exnem\BAF\AR2100.BAF~
+EXTEND_BOTTOM ~AR2101.BCS~ ~Exnem\BAF\AR2101.BAF~
+EXTEND_BOTTOM ~AR2202.BCS~ ~Exnem\BAF\AR2202.BAF~
+EXTEND_BOTTOM ~AR2400.BCS~ ~Exnem\BAF\AR2400.BAF~
+EXTEND_BOTTOM ~AR2401.BCS~ ~Exnem\BAF\AR2401.BAF~
+EXTEND_BOTTOM ~AR2603.BCS~ ~Exnem\BAF\AR2603.BAF~
+EXTEND_BOTTOM ~AR2800.BCS~ ~Exnem\BAF\AR2800.BAF~
+EXTEND_BOTTOM ~AR2802.BCS~ ~Exnem\BAF\AR2802.BAF~
+EXTEND_BOTTOM ~AR2901.BCS~ ~Exnem\BAF\AR2901.BAF~
+EXTEND_BOTTOM ~AR2902.BCS~ ~Exnem\BAF\AR2902.BAF~
+
+//End of Exnem Items Mod
+////////////////////////
+
+AT_INTERACTIVE_EXIT ~VIEW EXNEM/ReadMe-EXNEM.txt~

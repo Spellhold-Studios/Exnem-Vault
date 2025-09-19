@@ -1,0 +1,18 @@
+// Trademeet
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2000",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2000",1)
+      ActionOverride("Container 1",CreateItem("SCRXX15",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("XPOT008",2,0,0) // 
+      ActionOverride("Container 3",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("SCRXX13",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("SCRXX14",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("SCRXX12",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("RNDTRE04",0,0,0) // 
+      Continue()
+END

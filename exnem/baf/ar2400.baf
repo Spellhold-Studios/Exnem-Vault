@@ -1,0 +1,20 @@
+// Underdark, Mindflayer Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2400",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2400",1)
+      ActionOverride("Container 2",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XARM004",0,0,0) // 
+      ActionOverride("Container 4",CreateItem("SCRXX05",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX01",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX03",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX10",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX12",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX16",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("SCRXX04",0,0,0) // 
+      Continue()
+END

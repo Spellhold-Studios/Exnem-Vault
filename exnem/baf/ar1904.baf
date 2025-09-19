@@ -1,0 +1,16 @@
+// Druid Grove, Troll Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1904",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1904",1)
+      ActionOverride("Container 1",CreateItem("XSWD006",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XPOT004",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XPOT002",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XSTF003",0,0,0) // 
+      Continue()
+END

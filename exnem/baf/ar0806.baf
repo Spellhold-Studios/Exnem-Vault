@@ -1,0 +1,13 @@
+// Graveyard, Crypt King
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0806",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0806",1)
+      ActionOverride("Container 1",CreateItem("XSWD007",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("SCRXX16",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("CLKX01",0,0,0) // 
+      Continue()
+END

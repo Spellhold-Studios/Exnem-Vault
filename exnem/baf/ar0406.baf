@@ -1,0 +1,14 @@
+//Slums Area, Coronet Inn
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0406",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0406",1)
+      ActionOverride("Bag 1",CreateItem("SCRXX11",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("SCRXX10",0,0,0) // 
+      ActionOverride("Crate 2",CreateItem("SCRXX17",0,0,0) // 
+      ActionOverride("Table 6",CreateItem("SCRXX03",0,0,0) // 
+      Continue()
+END

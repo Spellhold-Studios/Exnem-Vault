@@ -1,0 +1,27 @@
+// Firk's Cave, Main Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1202",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1202",1)
+      ActionOverride("Container 10",CreateItem("XROB001",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("SCRXX25",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("XRNG004",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("XRNG005",0,0,0) // 
+      ActionOverride("Container 12",CreateItem("XRNG001",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("SCRXX01",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("SCRXX12",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("SCRXX13",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("SCRXX14",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("SCRXX22",0,0,0) // 
+      Continue()
+END

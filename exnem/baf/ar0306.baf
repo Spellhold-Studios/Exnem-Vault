@@ -1,0 +1,15 @@
+//Docks, Shadow Thieves Upstairs Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0306",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0306",1)
+      ActionOverride("Chest 2",CreateItem("XPOT005",0,0,0) // 
+      ActionOverride("Chest 2",CreateItem("AMULX02",0,0,0) // Amulet of Mind Warding
+      ActionOverride("Chest 4",CreateItem("XPOT006",0,0,0) // 
+      ActionOverride("Drawer 1",CreateItem("XPOT007",0,0,0) // 
+      ActionOverride("Drawer 1",CreateItem("XPOT008",0,0,0) // 
+      Continue()
+END

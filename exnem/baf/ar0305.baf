@@ -1,0 +1,17 @@
+//Docks, Shadow Thieves Main Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0305",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0305",1)
+      ActionOverride("Chest 1",CreateItem("XPOT001",0,0,0) // 
+      ActionOverride("Chest 3",CreateItem("XPOT002",0,0,0) // 
+      ActionOverride("Shelf 1",CreateItem("SCRXX10",0,0,0) // Firaga
+      ActionOverride("Shelf 2",CreateItem("SCRXX12",0,0,0) // Thundaga
+      ActionOverride("Table 5",CreateItem("XPOT003",0,0,0) // 
+      ActionOverride("Table 5",CreateItem("XPOT004",0,0,0) // 
+      ActionOverride("Table 5",CreateItem("XARM002",0,0,0) // 
+      Continue()
+END

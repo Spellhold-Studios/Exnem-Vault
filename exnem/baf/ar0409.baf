@@ -1,0 +1,13 @@
+//Slums Area, Baron Pryor
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0409",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0409",1)
+      ActionOverride("Drawer 1",CreateItem("AMULX03",0,0,0) // 
+      ActionOverride("Drawer 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Drawer 2",CreateItem("RNDTRE05",0,0,0) // 
+      Continue()
+END

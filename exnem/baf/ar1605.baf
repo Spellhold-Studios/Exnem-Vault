@@ -1,0 +1,14 @@
+// Brynnlaw, Wizard's Home
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1605",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1605",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XPOT008",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XSWD009",0,0,0) // 
+      Continue()
+END

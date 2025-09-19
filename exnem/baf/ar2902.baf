@@ -1,0 +1,12 @@
+// Hell, Pride area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2902",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2902",1)
+      ActionOverride("Shelf 1",CreateItem("SCRXX08",0,0,0) // 
+      ActionOverride("Shelf 1",CreateItem("SCRXX17",0,0,0) // 
+      Continue()
+END

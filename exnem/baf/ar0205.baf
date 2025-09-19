@@ -1,0 +1,18 @@
+//Unseeing Eye Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0205",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0205",1)
+      ActionOverride("Container 1",CreateItem("XHLM003",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XPOT001",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XSWD009",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XHLM002",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XSWD005",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("SCRXX21",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("SCRXX26",0,0,0) // 
+      ActionOverride("Container 8",CreateItem("SCRXX20",0,0,0) // 
+      Continue()
+END

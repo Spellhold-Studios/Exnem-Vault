@@ -1,0 +1,14 @@
+// Elf City
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2800",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2800",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XSTF006",0,0,0) // 
+      Continue()
+END

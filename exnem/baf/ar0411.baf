@@ -1,0 +1,13 @@
+//Slums Area, Sphere Level 1
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0411",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0411",1)
+      ActionOverride("Body 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Body 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Body 1",CreateItem("XHLM003",0,0,0) // 
+      Continue()
+END

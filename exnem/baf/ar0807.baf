@@ -1,0 +1,13 @@
+// Graveyard, Tomb
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0807",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0807",1)
+      ActionOverride("Container 1",CreateItem("XBTS002",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XGLV001",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XHAM001",0,0,0) // 
+      Continue()
+END

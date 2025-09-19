@@ -1,0 +1,13 @@
+//Slums Area, Jan House
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0401",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0401",1)
+      ActionOverride("Chest 1",CreateItem("RNDTRE06",0,0,0)) // 
+      ActionOverride("Chest 1",CreateItem("RNDTRE06",0,0,0)) // 
+      ActionOverride("Chest 1",CreateItem("XBTS001",0,0,0)) // 
+      Continue()
+END

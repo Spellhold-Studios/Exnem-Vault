@@ -1,0 +1,12 @@
+// Druid Grove, Barn
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1905",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1905",1)
+      ActionOverride("Container 1",CreateItem("XARM005",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XPOT008",2,0,0) // 
+      Continue()
+END

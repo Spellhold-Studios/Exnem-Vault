@@ -1,0 +1,13 @@
+// Jon Dungeon, Level 1, Exit
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0603",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0603",1)
+      ActionOverride("Container 5",CreateItem("SCRXX11",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("SCRXX12",0,0,0) // 
+      ActionOverride("Container 8",CreateItem("SCRXX13",0,0,0) // 
+      Continue()
+END

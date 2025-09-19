@@ -1,0 +1,11 @@
+// Graveyard, Tombs, Pai'Na Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0805",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0805",1)
+      ActionOverride("Container 1",CreateItem("XSWD002",0,0,0) // 
+      Continue()
+END

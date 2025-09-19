@@ -1,0 +1,12 @@
+// Temple District, Sewers, Mindflayer Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0711",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0711",1)
+      ActionOverride("Container 1",CreateItem("XHLM002",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XROB002",0,0,0) // 
+      Continue()
+END

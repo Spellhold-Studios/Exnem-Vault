@@ -1,0 +1,12 @@
+// Umar Hills, Val's Cabin
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1101",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1101",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XGLV001",0,0,0) // 
+      Continue()
+END

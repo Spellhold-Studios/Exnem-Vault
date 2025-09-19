@@ -1,0 +1,12 @@
+//Docks, Pirate Hideout
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0310",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0310",1)
+      ActionOverride("Pool 1",CreateItem("SCRXX25",0,0,0) // 
+      ActionOverride("Pool 1",CreateItem("SCRXX22",0,0,0) // Mind Ripple
+      Continue()
+END

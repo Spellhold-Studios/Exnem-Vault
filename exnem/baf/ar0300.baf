@@ -1,0 +1,25 @@
+//Docks Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0300",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0300",1)
+      ActionOverride("Barrel 1",CreateItem("RNDTRE06",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("XPOT003",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("SCRXX26",0,0,0) // 
+      ActionOverride("Barrel 2",CreateItem("SCRXX15",0,0,0) // Health Fountain
+      ActionOverride("Barrel 4",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("SCRXX01",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("SCRXX11",0,0,0) // Blizzaga
+      ActionOverride("Table 1",CreateItem("SCRXX02",0,0,0) // 
+      ActionOverride("Table 2",CreateItem("SCRXX03",0,0,0) // 
+      ActionOverride("Table 3",CreateItem("SCRXX14",0,0,0) // Demi
+      ActionOverride("Table 4",CreateItem("SCRXX04",0,0,0) // 
+      ActionOverride("Table 5",CreateItem("SCRXX05",0,0,0) // 
+      ActionOverride("Table 6",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Table 6",CreateItem("SCRXX07",0,0,0) // 
+      ActionOverride("Table 7",CreateItem("SCRXX08",0,0,0) // 
+      Continue()
+END

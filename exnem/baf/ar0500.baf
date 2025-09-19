@@ -1,0 +1,26 @@
+// Bridge Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0500",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0500",1)
+      ActionOverride("Barrel 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Barrel 2",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Barrel 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Barrel 3",CreateItem("SCRXX12",0,0,0) // 
+      ActionOverride("Barrel 3",CreateItem("SCRXX26",0,0,0) // 
+      ActionOverride("Barrel 3",CreateItem("SCRXX27",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Crate 1",CreateItem("SCRXX04",0,0,0) // 
+      ActionOverride("Table 1",CreateItem("XPOT003",0,0,0) // 
+      ActionOverride("Table 1",CreateItem("RNDTRE04",0,0,0) // 
+      Continue()
+END

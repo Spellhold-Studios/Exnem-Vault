@@ -1,0 +1,17 @@
+// Bridge Area, Tanner bottom level
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0503",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0503",1)
+      ActionOverride("Barrel 1",CreateItem("XROB003",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Barrel 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Crate 2",CreateItem("XARM004",0,0,0) // 
+      ActionOverride("Crate 2",CreateItem("XBTS001",0,0,0) // 
+      Continue()
+END

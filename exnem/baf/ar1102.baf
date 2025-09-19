@@ -1,0 +1,13 @@
+// Umar Hills, Mazzy's Cabin
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1102",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1102",1)
+      ActionOverride("Container 7",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 7",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 7",CreateItem("XARM001",0,0,0) // 
+      Continue()
+END

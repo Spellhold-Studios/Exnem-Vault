@@ -1,0 +1,13 @@
+// Umar Hills, Inn
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1105",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1105",1)
+      ActionOverride("Container 5",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("RNDTRE05",0,0,0) // 
+      Continue()
+END

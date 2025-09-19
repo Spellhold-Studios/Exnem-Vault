@@ -1,0 +1,17 @@
+// Graveyard, Tombs, Mummy Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0802",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0802",1)
+      ActionOverride("Crate 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Vase 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Vase 3",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Vase 3",CreateItem("XROB001",0,0,0) // 
+      ActionOverride("Vase 5",CreateItem("SCRXX17",0,0,0) // 
+      ActionOverride("Vase 5",CreateItem("XSWD008",0,0,0) // 
+      ActionOverride("Vase 5",CreateItem("XRNG008",0,0,0) // 
+      Continue()
+END

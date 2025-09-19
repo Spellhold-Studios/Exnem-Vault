@@ -1,0 +1,12 @@
+// Temple Ruins, outside
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1404",0)
+   Exists("shadel")
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1404",1)
+      GiveItemCreate("XSWD007","shadel",0,0,0) // 
+      Continue()
+END

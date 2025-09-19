@@ -1,0 +1,12 @@
+// Slums, Sphere, Spore Colony
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0419",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0419",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("XARM001",0,0,0) // 
+      Continue()
+END

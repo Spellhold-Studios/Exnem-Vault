@@ -1,0 +1,15 @@
+//Slums Area, Sewers
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0404",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0404",1)
+      ActionOverride("Barrel 2",CreateItem("RNDTRE06",0,0,0)) // 
+      ActionOverride("Barrel 6",CreateItem("RNDTRE06",0,0,0)) // 
+      ActionOverride("Crate 1",CreateItem("SCRXX17",0,0,0)) // 
+      ActionOverride("Table 1",CreateItem("SCRXX02",0,0,0)) // 
+      ActionOverride("Table 1",CreateItem("XRNG006",0,0,0)) // 
+      Continue()
+END

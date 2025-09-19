@@ -1,0 +1,13 @@
+// Jon Dungeon, Level 2, Start
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0602",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0602",1)
+      ActionOverride("Crate 2",CreateItem("SCRXX10",0,0,0) // 
+      ActionOverride("Drawer 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Vase 1",CreateItem("SCRXX01",0,0,0) // 
+      Continue()
+END

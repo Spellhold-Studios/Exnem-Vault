@@ -1,0 +1,22 @@
+// Temple Distric, Sewers, Mekrath House
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0705",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0705",1)
+      ActionOverride("Container 1",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Container 10",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 10",CreateItem("AMULX02",0,0,0) // 
+      ActionOverride("Container 11",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("SCRXX01",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("SCRXX17",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 8",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("XARM003",0,0,0) // 
+      ActionOverride("Lens Container",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Lens Container",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Lens Container",CreateItem("XRNG007",0,0,0) // 
+      Continue()
+END

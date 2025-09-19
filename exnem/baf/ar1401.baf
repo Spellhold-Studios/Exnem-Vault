@@ -1,0 +1,14 @@
+// Temple Ruins, main floor
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1401",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1401",1)
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0)) // 
+      ActionOverride("Container 2",CreateItem("RNDTRE05",0,0,0)) // 
+      ActionOverride("Container 3",CreateItem("XSWD004",0,0,0)) // 
+      ActionOverride("Container 9",CreateItem("XSTF002",0,0,0)) // 
+      Continue()
+END

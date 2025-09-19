@@ -1,0 +1,14 @@
+// Graveyard, Tombs, Lower Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0803",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0803",1)
+      ActionOverride("Altar 1",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Chest 1",CreateItem("XSWS003",0,0,0) // 
+      ActionOverride("Vase 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Vase 1",CreateItem("XSWD006",0,0,0) // 
+      Continue()
+END

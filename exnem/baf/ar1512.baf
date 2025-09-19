@@ -1,0 +1,25 @@
+// Spellhold maze, first level, upper part
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1512",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1512",1)
+      ActionOverride("Container 17",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Container 17",CreateItem("SCRXX23",0,0,0) // 
+      ActionOverride("Container 17",CreateItem("SCRXX24",0,0,0) // 
+      ActionOverride("Container 17",CreateItem("SCRXX26",0,0,0) // 
+      ActionOverride("Container 18",CreateItem("SCRXX25",0,0,0) // 
+      ActionOverride("Container 18",CreateItem("SCRXX21",0,0,0) // 
+      ActionOverride("Container 18",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 18",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 18",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 19",CreateItem("SCRXX08",0,0,0) // 
+      ActionOverride("Container 19",CreateItem("SCRXX17",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XROB005",0,0,0) // 
+      ActionOverride("Container 4",CreateItem("AMULX01",0,0,0) // 
+      ActionOverride("Container 4",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 4",CreateItem("SCRXX01",0,0,0) // 
+      Continue()
+END

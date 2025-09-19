@@ -1,0 +1,12 @@
+// Trademeet, jail
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2009",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2009",1)
+      ActionOverride("Container 1",CreateItem("SCRXX16",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("SCRXX17",0,0,0) // 
+      Continue()
+END

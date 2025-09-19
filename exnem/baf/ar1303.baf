@@ -1,0 +1,19 @@
+// Nalia's Keep, Top level
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1303",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1303",1)
+      ActionOverride("Container 1",CreateItem("XCLB001",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("XBTS001",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("XHLM001",0,0,0) // 
+      ActionOverride("Container 4",CreateItem("SCRXX13",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("SCRXX01",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("SCRXX15",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("RNDTRE03",0,0,0) // 
+      Continue()
+END

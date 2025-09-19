@@ -1,0 +1,18 @@
+// Bridge Area, Saerk House, upstairs level
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0505",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0505",1)
+      ActionOverride("Container 16",CreateItem("SCRXX06",0,0,0) // 
+      ActionOverride("Container 17",CreateItem("SCRXX02",0,0,0) // 
+      ActionOverride("Container 17",CreateItem("SCRXX03",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("SCRXX16",0,0,0) // 
+      ActionOverride("Container 5",CreateItem("XRNG005",0,0,0) // 
+      ActionOverride("Container 7",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 8",CreateItem("CLKX01",0,0,0) // 
+      ActionOverride("Container 9",CreateItem("RNDTRE03",0,0,0) // 
+      Continue()
+END

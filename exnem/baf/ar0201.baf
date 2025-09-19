@@ -1,0 +1,14 @@
+// Unseeing Eye, Undead Area 1
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0201",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0201",1)
+      ActionOverride("Skeleton 1",CreateItem("SCRXX03",0,0,0) // 
+      ActionOverride("Skeleton 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Skeleton 2",CreateItem("SCRXX02",0,0,0) // 
+      ActionOverride("Skeleton 2",CreateItem("XSWD008",0,0,0) // 
+      Continue()
+END

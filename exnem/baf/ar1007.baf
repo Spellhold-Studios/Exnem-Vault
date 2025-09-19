@@ -1,0 +1,12 @@
+// Government District, Voluva House
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1007",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1007",1)
+      ActionOverride("Table 1",CreateItem("XCLB001",0,0,0) // 
+      ActionOverride("Table 1",CreateItem("RNDTRE04",0,0,0) // 
+      Continue()
+END

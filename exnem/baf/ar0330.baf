@@ -1,0 +1,13 @@
+//Docks, DemiLich Main Area
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR0330",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR0330",1)
+      ActionOverride("Container 1",CreateItem("SCRXX14",0,0,0) // Demi
+      ActionOverride("Container 2",CreateItem("SCRXX02",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("SCRXX13",0,0,0) // 
+      Continue()
+END

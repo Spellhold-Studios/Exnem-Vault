@@ -1,0 +1,16 @@
+// Government District, Delryn House
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1001",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1001",1)
+      ActionOverride("Container 1",CreateItem("AMULX03",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("XPOT008",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("XRNG004",0,0,0) // 
+      Continue()
+END

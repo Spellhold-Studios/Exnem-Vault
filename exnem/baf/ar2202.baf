@@ -1,0 +1,12 @@
+// Underdark, Drow City, Tavern
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR2202",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR2202",1)
+      ActionOverride("Container 1",CreateItem("SCRXX08",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("SCRXX17",0,0,0) // 
+      Continue()
+END

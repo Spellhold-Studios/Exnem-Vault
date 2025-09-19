@@ -1,0 +1,14 @@
+// Government District, Keldorn House
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1003",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1003",1)
+      ActionOverride("Container 1",CreateItem("XRNG002",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 1",CreateItem("RNDTRE05",0,0,0) // 
+      Continue()
+END

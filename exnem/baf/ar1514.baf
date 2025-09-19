@@ -1,0 +1,15 @@
+// Spellhold maze, second level
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1514",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1514",1)
+      ActionOverride("Container 4",CreateItem("XARM003",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("RNDTRE05",0,0,0) // 
+      ActionOverride("Container 6",CreateItem("XROB004",0,0,0) // 
+      Continue()
+END

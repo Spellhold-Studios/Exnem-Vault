@@ -1,0 +1,14 @@
+// Umar Hills, Wizard home
+//////////////
+
+IF
+   Global("ExnemSpawnItem","AR1103",0)
+THEN
+   RESPONSE #100
+      SetGlobal("ExnemSpawnItem","AR1103",1)
+      ActionOverride("Container 1",CreateItem("XPOT003",0,0,0) // 
+      ActionOverride("Container 2",CreateItem("RNDTRE03",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("RNDTRE04",0,0,0) // 
+      ActionOverride("Container 3",CreateItem("XARM002",0,0,0) // 
+      Continue()
+END
